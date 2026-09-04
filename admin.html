@@ -468,10 +468,23 @@ async function saveRound(){
 
   try{
     await api('/data/rounds_' + year + '.json', 'POST', roundsCache[year]);
+    await ensureManifestHasYear(year);
     toast('Rodada salva com sucesso');
     renderRoundsList(year);
     clearRoundForm();
   }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
+}
+
+async function ensureManifestHasYear(year){
+  try{
+    const res = await api('/data/manifest.json');
+    const manifest = res.content || {years: []};
+    if (!manifest.years.includes(year)){
+      manifest.years.push(year);
+      manifest.years.sort();
+      await api('/data/manifest.json', 'POST', manifest);
+    }
+  }catch(e){ console.warn('Não foi possível atualizar o manifest.json', e); }
 }
 
 document.getElementById('rDate').addEventListener('change', loadRoundsForSelectedYear);
