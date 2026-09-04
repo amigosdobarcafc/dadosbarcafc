@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABFC · Painel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0C; --bg-card:#151517; --bg-card-2:#1A1A1D; --bg-input:#1F1F23;
+    --border:#28282C; --accent:#FF6A00; --accent-dim:#B34C00; --accent-soft:#3A2313;
+    --text:#F2F2F0; --text-dim:#8C8C92; --green:#2ECC71; --red:#EF4444;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; min-height:100vh;}
+  h1,h2,h3,.label-sport{font-family:'Oswald',sans-serif;}
+  ::selection{background:var(--accent); color:#000;}
+
+  /* ---- login ---- */
+  #loginScreen{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;}
+  .login-box{width:100%; max-width:360px; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:36px 32px;}
+  .crest{width:56px; height:56px; margin:0 auto 18px; display:block;}
+  .login-box h1{font-size:1.5rem; letter-spacing:.3px; text-align:center; margin:0 0 4px; color:var(--text);}
+  .login-box p.sub{text-align:center; color:var(--text-dim); font-size:.85rem; margin:0 0 28px;}
+  label{display:block; font-size:.78rem; color:var(--text-dim); margin:14px 0 6px;}
+  input[type=text], input[type=password], input[type=date], input[type=number], select{
+    width:100%; background:var(--bg-input); border:1px solid var(--border); color:var(--text);
+    border-radius:8px; padding:11px 12px; font-size:.95rem; font-family:inherit;
+  }
+  input:focus, select:focus{outline:none; border-color:var(--accent);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--accent); color:#0B0B0C; border:none; border-radius:8px;
+    padding:12px 18px; font-weight:600; font-size:.9rem; cursor:pointer; font-family:'Oswald',sans-serif;
+    letter-spacing:.3px; transition:filter .15s;
+  }
+  .btn:hover{filter:brightness(1.08);}
+  .btn:active{filter:brightness(.92);}
+  .btn-ghost{background:transparent; color:var(--text-dim); border:1px solid var(--border);}
+  .btn-danger{background:var(--red); color:#fff;}
+  .btn-block{width:100%;}
+  .err{color:var(--red); font-size:.82rem; margin-top:12px; text-align:center; min-height:1em;}
+
+  /* ---- app shell ---- */
+  #app{display:none;}
+  header.topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; border-bottom:1px solid var(--border); background:var(--bg-card);
+  }
+  header.topbar .brand{display:flex; align-items:center; gap:12px;}
+  header.topbar .brand .crest{width:34px; height:34px; margin:0;}
+  header.topbar h1{font-size:1.15rem; margin:0; color:var(--accent); letter-spacing:.5px;}
+  header.topbar .who{color:var(--text-dim); font-size:.82rem; display:flex; align-items:center; gap:14px;}
+
+  nav.tabs{display:flex; gap:6px; padding:14px 28px 0; border-bottom:1px solid var(--border); background:var(--bg-card);}
+  nav.tabs button{
+    background:none; border:none; color:var(--text-dim); padding:10px 16px; cursor:pointer;
+    font-family:'Oswald',sans-serif; font-size:.85rem; letter-spacing:.3px; border-bottom:2px solid transparent;
+  }
+  nav.tabs button.active{color:var(--accent); border-color:var(--accent);}
+
+  main{max-width:920px; margin:0 auto; padding:28px;}
+  .card{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:22px; margin-bottom:20px;}
+  .card h2{margin:0 0 16px; font-size:1rem; color:var(--text); font-weight:500; letter-spacing:.3px;}
+  .row{display:flex; gap:14px; flex-wrap:wrap; align-items:flex-end;}
+  .row > div{flex:1; min-width:160px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:720px){.grid2{grid-template-columns:1fr;}}
+
+  .players-pick{max-height:280px; overflow-y:auto; border:1px solid var(--border); border-radius:8px; padding:6px;}
+  .players-pick label{
+    display:flex; align-items:center; gap:9px; padding:8px 10px; margin:0; border-radius:6px; cursor:pointer; font-size:.88rem; color:var(--text);
+  }
+  .players-pick label:hover{background:var(--bg-input);}
+  .players-pick input[type=checkbox]{width:auto; accent-color:var(--accent);}
+
+  .stat-list{display:flex; flex-direction:column; gap:8px; max-height:400px; overflow-y:auto;}
+  .stat-row{display:grid; grid-template-columns:1fr 70px 70px; gap:8px; align-items:center; background:var(--bg-input); padding:8px 10px; border-radius:8px;}
+  .stat-row span{font-size:.85rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .stat-row input{padding:7px 8px; text-align:center;}
+
+  .rounds-list{display:flex; flex-direction:column; gap:6px; max-height:420px; overflow-y:auto;}
+  .round-item{
+    display:flex; justify-content:space-between; align-items:center; background:var(--bg-input);
+    border:1px solid var(--border); border-radius:8px; padding:10px 14px; cursor:pointer; font-size:.86rem;
+  }
+  .round-item:hover{border-color:var(--accent-dim);}
+  .round-item .d{color:var(--accent); font-family:'Oswald',sans-serif;}
+  .round-item .p{color:var(--text-dim);}
+
+  table.plain{width:100%; border-collapse:collapse; font-size:.88rem;}
+  table.plain th{text-align:left; color:var(--text-dim); font-weight:500; font-size:.72rem; text-transform:uppercase; letter-spacing:.4px; padding:8px 10px; border-bottom:1px solid var(--border);}
+  table.plain td{padding:9px 10px; border-bottom:1px solid #202023;}
+  table.plain tr:hover td{background:var(--bg-input);}
+
+  .toast{
+    position:fixed; bottom:24px; right:24px; background:var(--bg-card); border:1px solid var(--border);
+    border-left:3px solid var(--green); color:var(--text); padding:14px 18px; border-radius:8px; font-size:.85rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.4); display:none; max-width:320px; z-index:50;
+  }
+  .toast.error{border-left-color:var(--red);}
+  .toast.show{display:block;}
+
+  .destaques-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
+  @media (max-width:720px){.destaques-grid{grid-template-columns:1fr;}}
+  .empty-hint{color:var(--text-dim); font-size:.85rem; padding:20px; text-align:center;}
+</style>
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-box">
+    <svg class="crest" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF6A00" stroke-width="1.6"/><path d="M12 2v20M2 12h20" stroke="#FF6A00" stroke-width="1" opacity=".35"/></svg>
+    <h1>Amigos do Barça FC</h1>
+    <p class="sub">Painel de administração</p>
+    <label for="lUser">Usuário</label>
+    <input type="text" id="lUser" autocomplete="username">
+    <label for="lPass">Senha</label>
+    <input type="password" id="lPass" autocomplete="current-password">
+    <button class="btn btn-block" style="margin-top:22px" onclick="doLogin()">Entrar</button>
+    <div class="err" id="loginErr"></div>
+  </div>
+</div>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="crest" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF6A00" stroke-width="1.6"/><path d="M12 2v20M2 12h20" stroke="#FF6A00" stroke-width="1" opacity=".35"/></svg>
+      <h1>PAINEL ABFC</h1>
+    </div>
+    <div class="who">
+      <span id="whoUser"></span>
+      <button class="btn btn-ghost" onclick="logout()">Sair</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="active" data-tab="registrar" onclick="showTab('registrar')">Registrar Rodada</button>
+    <button data-tab="jogadores" onclick="showTab('jogadores')">Jogadores</button>
+    <button data-tab="legado" onclick="showTab('legado')">Legado (anos anteriores)</button>
+  </nav>
+
+  <main>
+    <!-- REGISTRAR -->
+    <section id="tab-registrar">
+      <div class="grid2">
+        <div>
+          <div class="card">
+            <h2>Dados da rodada</h2>
+            <div class="row">
+              <div>
+                <label for="rDate">Data</label>
+                <input type="date" id="rDate">
+              </div>
+              <div style="flex:0;">
+                <button class="btn btn-ghost" onclick="clearRoundForm()">Limpar</button>
+              </div>
+            </div>
+            <label style="margin-top:18px;">Presença (marque quem jogou)</label>
+            <div class="players-pick" id="pickPresenca"></div>
+          </div>
+
+          <div class="card">
+            <h2>Destaques da rodada <span style="color:var(--text-dim); font-weight:400; font-size:.75rem;">(opcional)</span></h2>
+            <div class="destaques-grid" id="destaquesGrid"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h2>Gols e assistências</h2>
+            <div class="stat-list" id="statList">
+              <div class="empty-hint">Marque a presença dos jogadores ao lado</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <button class="btn btn-block" id="btnSaveRound" onclick="saveRound()">Salvar rodada</button>
+          </div>
+
+          <div class="card">
+            <h2>Rodadas de <span id="roundsYearLabel">2026</span></h2>
+            <div class="rounds-list" id="roundsList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOGADORES -->
+    <section id="tab-jogadores" style="display:none;">
+      <div class="grid2">
+        <div class="card">
+          <h2 id="playerFormTitle">Novo atleta</h2>
+          <label for="pNome">Nome</label>
+          <input type="text" id="pNome">
+          <label for="pPosicao">Posição</label>
+          <select id="pPosicao">
+            <option>Goleiro</option><option>Fixo</option><option>Ala</option><option>Pivô</option>
+          </select>
+          <div class="row" style="margin-top:18px;">
+            <button class="btn" onclick="savePlayer()">Salvar</button>
+            <button class="btn btn-ghost" onclick="clearPlayerForm()">Cancelar edição</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Elenco</h2>
+          <table class="plain">
+            <thead><tr><th>Nome</th><th>Posição</th><th></th></tr></thead>
+            <tbody id="playersTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGADO -->
+    <section id="tab-legado" style="display:none;">
+      <div class="grid2">
+        <div class="card">
+          <h2>Ano</h2>
+          <select id="legacyYear" onchange="loadLegacyYear()"></select>
+          <div class="row" style="margin-top:14px;">
+            <input type="text" id="newLegacyYear" placeholder="Novo ano, ex: 2024" style="max-width:160px;">
+            <button class="btn btn-ghost" onclick="addLegacyYear()">Adicionar ano</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Totais agregados (sem detalhe por rodada)</h2>
+          <div class="stat-list" id="legacyList"></div>
+          <button class="btn btn-block" style="margin-top:14px;" onclick="saveLegacy()">Salvar legado</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const WORKER_URL = "https://abfc-portal-api.alexgabbia.workers.dev";
+
+let session = JSON.parse(localStorage.getItem('abfc_session') || 'null');
+let players = [];
+let roundsCache = {};      // { year: [rounds...] }
+let legacy = {};           // { "2025": {gols:{}, assists:{}} }
+let editingRoundDate = null;
+let editingPlayerIdx = null;
+
+const CATEGORIAS = {
+  craque: "⭐ Craque", defensor: "🛡️ Defensor", goleiro: "🧤 Goleiro",
+  capitao: "🎗️ Capitão", coringa: "🃏 Coringa", bola_murcha: "💩 Bola Murcha"
+};
+
+function toast(msg, isError=false){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show' + (isError ? ' error' : '');
+  setTimeout(()=> t.className='toast', 3200);
+}
+
+// ---------- API ----------
+async function api(path, method='GET', body=null){
+  const headers = {'Content-Type':'application/json'};
+  if (session) headers['Authorization'] = 'Bearer ' + session.token;
+  const res = await fetch(WORKER_URL + path, {method, headers, body: body ? JSON.stringify(body) : undefined});
+  const data = await res.json();
+  if (!data.ok){
+    if (data.error && data.error.includes('Sessão')) { logout(); }
+    throw new Error(data.error || 'Erro desconhecido');
+  }
+  return data;
+}
+
+async function doLogin(){
+  const user = document.getElementById('lUser').value.trim();
+  const pass = document.getElementById('lPass').value;
+  const errBox = document.getElementById('loginErr');
+  errBox.textContent = '';
+  try{
+    const res = await fetch(WORKER_URL + '/login', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({user, pass})
+    });
+    const data = await res.json();
+    if (!data.ok) { errBox.textContent = data.error || 'Falha no login'; return; }
+    session = {token:data.token, user:data.user};
+    localStorage.setItem('abfc_session', JSON.stringify(session));
+    boot();
+  }catch(e){ errBox.textContent = 'Não foi possível conectar ao servidor.'; }
+}
+
+function logout(){
+  session = null; localStorage.removeItem('abfc_session');
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+}
+
+// ---------- boot ----------
+async function boot(){
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('whoUser').textContent = 'Logado como ' + session.user;
+
+  try{
+    const [pRes, lRes] = await Promise.all([
+      api('/data/players.json'),
+      api('/data/legacy_totals.json'),
+    ]);
+    players = pRes.content || [];
+    legacy = lRes.content || {};
+  }catch(e){ toast('Erro ao carregar dados: ' + e.message, true); return; }
+
+  renderPresencaPicker();
+  renderDestaquesGrid();
+  renderPlayersTable();
+  renderLegacyYearSelect();
+
+  document.getElementById('rDate').valueAsDate = new Date();
+  await loadRoundsForSelectedYear();
+}
+
+function showTab(tab){
+  ['registrar','jogadores','legado'].forEach(t=>{
+    document.getElementById('tab-'+t).style.display = (t===tab) ? 'block' : 'none';
+  });
+  document.querySelectorAll('nav.tabs button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.tab===tab);
+  });
+}
+
+// ---------- REGISTRAR RODADA ----------
+function renderPresencaPicker(){
+  const box = document.getElementById('pickPresenca');
+  box.innerHTML = '';
+  [...players].sort((a,b)=>a.nome.localeCompare(b.nome)).forEach(p=>{
+    const lbl = document.createElement('label');
+    lbl.innerHTML = `<input type="checkbox" value="${p.nome}" onchange="onPresencaChange()"> ${p.nome}`;
+    box.appendChild(lbl);
+  });
+}
+
+function renderDestaquesGrid(){
+  const grid = document.getElementById('destaquesGrid');
+  grid.innerHTML = '';
+  Object.entries(CATEGORIAS).forEach(([key, label])=>{
+    const div = document.createElement('div');
+    div.innerHTML = `<label>${label}</label><select id="dest_${key}"><option value="">—</option></select>`;
+    grid.appendChild(div);
+  });
+  refreshDestaqueOptions();
+}
+
+function refreshDestaqueOptions(){
+  const checked = [...document.querySelectorAll('#pickPresenca input:checked')].map(c=>c.value);
+  Object.keys(CATEGORIAS).forEach(key=>{
+    const sel = document.getElementById('dest_'+key);
+    if (!sel) return;
+    const current = sel.value;
+    sel.innerHTML = '<option value="">—</option>' + checked.map(n=>`<option value="${n}">${n}</option>`).join('');
+    if (checked.includes(current)) sel.value = current;
+  });
+}
+
+function onPresencaChange(){
+  const checked = [...document.querySelectorAll('#pickPresenca input:checked')].map(c=>c.value);
+  const list = document.getElementById('statList');
+  if (checked.length === 0){
+    list.innerHTML = '<div class="empty-hint">Marque a presença dos jogadores ao lado</div>';
+    refreshDestaqueOptions();
+    return;
+  }
+  const existingValues = {};
+  list.querySelectorAll('.stat-row').forEach(row=>{
+    existingValues[row.dataset.nome] = [row.querySelector('.gInput').value, row.querySelector('.aInput').value];
+  });
+  list.innerHTML = '';
+  checked.sort().forEach(nome=>{
+    const [g, a] = existingValues[nome] || [0, 0];
+    const row = document.createElement('div');
+    row.className = 'stat-row'; row.dataset.nome = nome;
+    row.innerHTML = `<span title="${nome}">${nome}</span>
+      <input type="number" min="0" class="gInput" value="${g}" title="Gols">
+      <input type="number" min="0" class="aInput" value="${a}" title="Assistências">`;
+    list.appendChild(row);
+  });
+  refreshDestaqueOptions();
+}
+
+function clearRoundForm(){
+  editingRoundDate = null;
+  document.getElementById('rDate').valueAsDate = new Date();
+  document.querySelectorAll('#pickPresenca input').forEach(c=> c.checked = false);
+  onPresencaChange();
+  document.getElementById('btnSaveRound').textContent = 'Salvar rodada';
+}
+
+function yearOf(isoDate){ return isoDate.slice(0,4); }
+
+async function loadRoundsForSelectedYear(){
+  const year = yearOf(document.getElementById('rDate').value || new Date().toISOString());
+  document.getElementById('roundsYearLabel').textContent = year;
+  if (!roundsCache[year]){
+    try{
+      const res = await api('/data/rounds_' + year + '.json');
+      roundsCache[year] = res.content || [];
+    }catch(e){ roundsCache[year] = []; }
+  }
+  renderRoundsList(year);
+}
+
+function renderRoundsList(year){
+  const box = document.getElementById('roundsList');
+  const list = [...roundsCache[year]].sort((a,b)=> b.data.localeCompare(a.data));
+  box.innerHTML = list.length ? '' : '<div class="empty-hint">Nenhuma rodada registrada ainda</div>';
+  list.forEach(r=>{
+    const [y,m,d] = r.data.split('-');
+    const el = document.createElement('div');
+    el.className = 'round-item';
+    el.innerHTML = `<span class="d">${d}/${m}/${y}</span><span class="p">${r.presentes.length} presentes</span>`;
+    el.onclick = ()=> editRound(r.data, year);
+    box.appendChild(el);
+  });
+}
+
+function editRound(dateIso, year){
+  const r = roundsCache[year].find(x=>x.data===dateIso);
+  if (!r) return;
+  editingRoundDate = dateIso;
+  document.getElementById('rDate').value = dateIso;
+  document.querySelectorAll('#pickPresenca input').forEach(c=>{
+    c.checked = r.presentes.includes(c.value);
+  });
+  onPresencaChange();
+  Object.entries(r.estatisticas || {}).forEach(([nome, st])=>{
+    const row = [...document.querySelectorAll('.stat-row')].find(x=>x.dataset.nome===nome);
+    if (row){ row.querySelector('.gInput').value = st.gols||0; row.querySelector('.aInput').value = st.assists||0; }
+  });
+  Object.entries(r.destaques || {}).forEach(([cat, arr])=>{
+    const sel = document.getElementById('dest_'+cat);
+    if (sel && arr && arr.length) sel.value = arr[0];
+  });
+  document.getElementById('btnSaveRound').textContent = 'Atualizar rodada';
+}
+
+async function saveRound(){
+  const dateIso = document.getElementById('rDate').value;
+  if (!dateIso) { toast('Escolha uma data', true); return; }
+  const presentes = [...document.querySelectorAll('#pickPresenca input:checked')].map(c=>c.value);
+  if (presentes.length === 0) { toast('Marque ao menos um jogador presente', true); return; }
+
+  const estatisticas = {};
+  document.querySelectorAll('.stat-row').forEach(row=>{
+    estatisticas[row.dataset.nome] = {
+      gols: parseInt(row.querySelector('.gInput').value || 0, 10),
+      assists: parseInt(row.querySelector('.aInput').value || 0, 10),
+    };
+  });
+
+  const destaques = {};
+  Object.keys(CATEGORIAS).forEach(cat=>{
+    const val = document.getElementById('dest_'+cat).value;
+    if (val) destaques[cat] = [val];
+  });
+
+  const year = yearOf(dateIso);
+  if (!roundsCache[year]) roundsCache[year] = [];
+  const idx = roundsCache[year].findIndex(r=>r.data===dateIso);
+  const entry = {data: dateIso, presentes, estatisticas, destaques};
+  if (idx >= 0) roundsCache[year][idx] = entry; else roundsCache[year].push(entry);
+
+  try{
+    await api('/data/rounds_' + year + '.json', 'POST', roundsCache[year]);
+    toast('Rodada salva com sucesso');
+    renderRoundsList(year);
+    clearRoundForm();
+  }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
+}
+
+document.getElementById('rDate').addEventListener('change', loadRoundsForSelectedYear);
+
+// ---------- JOGADORES ----------
+function renderPlayersTable(){
+  const tbody = document.getElementById('playersTable');
+  tbody.innerHTML = '';
+  [...players].sort((a,b)=>a.nome.localeCompare(b.nome)).forEach((p)=>{
+    const realIdx = players.indexOf(p);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${p.nome}</td><td>${p.posicao}</td>
+      <td style="text-align:right;"><button class="btn btn-ghost" style="padding:6px 10px; font-size:.75rem;" onclick="editPlayer(${realIdx})">Editar</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function editPlayer(idx){
+  editingPlayerIdx = idx;
+  document.getElementById('pNome').value = players[idx].nome;
+  document.getElementById('pPosicao').value = players[idx].posicao;
+  document.getElementById('playerFormTitle').textContent = 'Editando atleta';
+}
+
+function clearPlayerForm(){
+  editingPlayerIdx = null;
+  document.getElementById('pNome').value = '';
+  document.getElementById('pPosicao').selectedIndex = 0;
+  document.getElementById('playerFormTitle').textContent = 'Novo atleta';
+}
+
+async function savePlayer(){
+  const nome = document.getElementById('pNome').value.trim();
+  const posicao = document.getElementById('pPosicao').value;
+  if (!nome) { toast('Informe o nome', true); return; }
+  if (editingPlayerIdx !== null) players[editingPlayerIdx] = {nome, posicao};
+  else players.push({nome, posicao});
+  try{
+    await api('/data/players.json', 'POST', players);
+    toast('Elenco atualizado');
+    renderPlayersTable(); renderPresencaPicker(); clearPlayerForm();
+  }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
+}
+
+// ---------- LEGADO ----------
+function renderLegacyYearSelect(){
+  const sel = document.getElementById('legacyYear');
+  const years = Object.keys(legacy).sort().reverse();
+  sel.innerHTML = years.map(y=>`<option value="${y}">${y}</option>`).join('');
+  if (years.length) loadLegacyYear();
+}
+
+function addLegacyYear(){
+  const y = document.getElementById('newLegacyYear').value.trim();
+  if (!/^\d{4}$/.test(y)) { toast('Digite um ano válido, ex: 2024', true); return; }
+  if (!legacy[y]) legacy[y] = {gols:{}, assists:{}};
+  document.getElementById('newLegacyYear').value = '';
+  renderLegacyYearSelect();
+  document.getElementById('legacyYear').value = y;
+  loadLegacyYear();
+}
+
+function loadLegacyYear(){
+  const year = document.getElementById('legacyYear').value;
+  const data = legacy[year] || {gols:{}, assists:{}};
+  const box = document.getElementById('legacyList');
+  box.innerHTML = '';
+  [...players].sort((a,b)=>a.nome.localeCompare(b.nome)).forEach(p=>{
+    const g = data.gols[p.nome] || 0, a = data.assists[p.nome] || 0;
+    const row = document.createElement('div');
+    row.className = 'stat-row'; row.dataset.nome = p.nome;
+    row.innerHTML = `<span title="${p.nome}">${p.nome}</span>
+      <input type="number" min="0" class="gInput" value="${g}">
+      <input type="number" min="0" class="aInput" value="${a}">`;
+    box.appendChild(row);
+  });
+}
+
+async function saveLegacy(){
+  const year = document.getElementById('legacyYear').value;
+  if (!year) { toast('Adicione um ano primeiro', true); return; }
+  const gols = {}, assists = {};
+  document.querySelectorAll('#legacyList .stat-row').forEach(row=>{
+    const g = parseInt(row.querySelector('.gInput').value || 0, 10);
+    const a = parseInt(row.querySelector('.aInput').value || 0, 10);
+    if (g) gols[row.dataset.nome] = g;
+    if (a) assists[row.dataset.nome] = a;
+  });
+  legacy[year] = {gols, assists};
+  try{
+    await api('/data/legacy_totals.json', 'POST', legacy);
+    toast('Legado de ' + year + ' salvo');
+  }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
+}
+
+// ---------- start ----------
+if (session) boot();
+</script>
+</body>
+</html>
