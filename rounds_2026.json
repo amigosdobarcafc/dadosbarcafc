@@ -1,0 +1,3220 @@
+[
+  {
+    "data": "2026-01-08",
+    "presentes": [
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Christian Dias",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Hericky Padilha",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Andre Nanni": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Christian Dias": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 9
+      },
+      "Gabriel Garcia": {
+        "gols": 10,
+        "assists": 1
+      },
+      "Hericky Padilha": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Leo Pirola": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Matheus Henrique": {
+        "gols": 6,
+        "assists": 4
+      },
+      "Renan Lourenco": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Ronaldo Luiz": {
+        "gols": 8,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Felipe Furquim"
+      ],
+      "craque": [
+        "Gabriel Garcia"
+      ],
+      "artilheiro": [
+        "Gabriel Garcia"
+      ],
+      "lider_assist": [
+        "Felipe Furquim"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Mateus Falcao"
+      ],
+      "capitao": [
+        "Matheus Henrique"
+      ],
+      "coringa": [
+        "Ronaldo Luiz"
+      ],
+      "bola_murcha": [
+        "Leo Pirola"
+      ]
+    }
+  },
+  {
+    "data": "2026-01-15",
+    "presentes": [
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Rafael Fellipe",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Andre Nanni": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 8,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Leo Pirola": {
+        "gols": 5,
+        "assists": 5
+      },
+      "Mateus Falcao": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Matheus Henrique": {
+        "gols": 5,
+        "assists": 3
+      },
+      "Rafael Fellipe": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Renan Lourenco": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Robson Souza": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Leo Pirola"
+      ],
+      "craque": [
+        "Matheus Henrique"
+      ],
+      "artilheiro": [
+        "Gabriel Garcia"
+      ],
+      "lider_assist": [
+        "Leo Pirola"
+      ],
+      "defensor": [
+        "Carlos Eduardo"
+      ],
+      "goleiro": [
+        "Renan Lourenco"
+      ],
+      "capitao": [
+        "Gabriel Garcia"
+      ],
+      "coringa": [
+        "Mateus Lopes",
+        "Rafael Fellipe"
+      ],
+      "bola_murcha": [
+        "Andre Nanni"
+      ]
+    }
+  },
+  {
+    "data": "2026-01-22",
+    "presentes": [
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Hericky Padilha",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Maicon Facioli",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Rafael Fellipe",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Andre Nanni": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Carlos Eduardo": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Gustavo Ortiz": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Hericky Padilha": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 0
+      },
+      "Leo Pirola": {
+        "gols": 7,
+        "assists": 4
+      },
+      "Maicon Facioli": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Mateus Almeida": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Matheus Henrique": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Rafael Fellipe": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 0
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Leo Pirola"
+      ],
+      "craque": [
+        "Carlos Eduardo",
+        "Gabriel Garcia"
+      ],
+      "artilheiro": [
+        "Kaue Nazario",
+        "Leo Pirola"
+      ],
+      "lider_assist": [
+        "Leo Pirola"
+      ],
+      "defensor": [
+        "Alex Gabbia",
+        "Andre Nanni",
+        "Hericky Padilha"
+      ],
+      "goleiro": [
+        "Maicon Facioli"
+      ],
+      "capitao": [
+        "Matheus Henrique"
+      ],
+      "coringa": [
+        "Mateus Almeida"
+      ],
+      "bola_murcha": [
+        "Ronaldo Luiz"
+      ]
+    }
+  },
+  {
+    "data": "2026-01-29",
+    "presentes": [
+      "Alessandro",
+      "Andre Nanni",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Hericky Padilha",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Maicon Facioli",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Andre Nanni": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Ari Santos": {
+        "gols": 4,
+        "assists": 6
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Gabriel Garcia": {
+        "gols": 10,
+        "assists": 3
+      },
+      "Hericky Padilha": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 9,
+        "assists": 0
+      },
+      "Leo Pirola": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Maicon Facioli": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Mateus Almeida": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Matheus Henrique": {
+        "gols": 6,
+        "assists": 4
+      },
+      "Robson Souza": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Ronaldo Luiz": {
+        "gols": 0,
+        "assists": 0
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Gabriel Garcia"
+      ],
+      "craque": [
+        "Mateus Almeida"
+      ],
+      "artilheiro": [
+        "Gabriel Garcia"
+      ],
+      "lider_assist": [
+        "Ari Santos"
+      ],
+      "defensor": [
+        "Felipe Furquim"
+      ],
+      "goleiro": [
+        "Maicon Facioli"
+      ],
+      "capitao": [
+        "Andre Nanni",
+        "Kaue Nazario",
+        "Matheus Henrique"
+      ],
+      "coringa": [
+        "Ari Santos"
+      ],
+      "bola_murcha": [
+        "Leo Pirola",
+        "Ronaldo Luiz"
+      ]
+    }
+  },
+  {
+    "data": "2026-02-05",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Renan Vieira",
+      "Robson Souza",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Andre Nanni": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 3
+      },
+      "Felipe Furquim": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Gustavo Ortiz": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 8,
+        "assists": 2
+      },
+      "Leo Pirola": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Matheus Henrique": {
+        "gols": 2,
+        "assists": 5
+      },
+      "Renan Lourenco": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Robson Souza": {
+        "gols": 3,
+        "assists": 1
+      },
+      "William Ramos": {
+        "gols": 6,
+        "assists": 2
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Kaue Nazario"
+      ],
+      "craque": [
+        "Andre Nanni"
+      ],
+      "artilheiro": [
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Matheus Henrique"
+      ],
+      "defensor": [
+        "Carlos Eduardo"
+      ],
+      "goleiro": [
+        "Renan Lourenco"
+      ],
+      "capitao": [
+        "Alex Gabbia",
+        "Gabriel Garcia",
+        "Matheus Henrique"
+      ],
+      "coringa": [
+        "William Ramos"
+      ],
+      "bola_murcha": [
+        "Leo Pirola"
+      ]
+    }
+  },
+  {
+    "data": "2026-02-12",
+    "presentes": [
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Hericky Padilha",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Renan Vieira",
+      "Robson Souza",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 5
+      },
+      "Andre Nanni": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Gabriel Garcia": {
+        "gols": 8,
+        "assists": 0
+      },
+      "Hericky Padilha": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 6
+      },
+      "Leo Pirola": {
+        "gols": 1,
+        "assists": 5
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Renan Lourenco": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Renan Menezes": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Robson Souza": {
+        "gols": 4,
+        "assists": 3
+      },
+      "William Ramos": {
+        "gols": 3,
+        "assists": 0
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Kaue Nazario"
+      ],
+      "craque": [
+        "Gabriel Garcia"
+      ],
+      "artilheiro": [
+        "Gabriel Garcia"
+      ],
+      "lider_assist": [
+        "Gabriel Garcia"
+      ],
+      "defensor": [
+        "Andre Nanni",
+        "Carlos Eduardo",
+        "Hericky Padilha"
+      ],
+      "goleiro": [
+        "Renan Lourenco"
+      ],
+      "capitao": [
+        "Alex Gabbia",
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Robson Souza"
+      ],
+      "bola_murcha": [
+        "Mateus Falcao",
+        "Renan Menezes"
+      ]
+    }
+  },
+  {
+    "data": "2026-02-19",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Ari Santos",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Renan Menezes",
+      "Renan Vieira",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Andre Nanni": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Ari Santos": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Felipe Furquim": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Gabriel Garcia": {
+        "gols": 6,
+        "assists": 6
+      },
+      "Kaue Nazario": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Leo Pirola": {
+        "gols": 10,
+        "assists": 3
+      },
+      "Mateus Almeida": {
+        "gols": 7,
+        "assists": 0
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Matheus Henrique": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 6,
+        "assists": 4
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Leo Pirola"
+      ],
+      "craque": [
+        "Ronaldo Luiz"
+      ],
+      "artilheiro": [
+        "Leo Pirola"
+      ],
+      "lider_assist": [
+        "Gabriel Garcia"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Alessandro"
+      ],
+      "capitao": [
+        "Gabriel Garcia"
+      ],
+      "coringa": [
+        "Matheus Henrique"
+      ],
+      "bola_murcha": [
+        "Renan Menezes"
+      ]
+    }
+  },
+  {
+    "data": "2026-02-26",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Matheus Henrique",
+      "Renan Menezes",
+      "Renan Vieira",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Andre Nanni": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 7,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 7,
+        "assists": 7
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 4
+      },
+      "Leo Pirola": {
+        "gols": 5,
+        "assists": 5
+      },
+      "Matheus Henrique": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Renan Menezes": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Renan Vieira": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Robson Souza": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Ronaldo Luiz": {
+        "gols": 4,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Gabriel Garcia"
+      ],
+      "craque": [
+        "Leo Pirola"
+      ],
+      "artilheiro": [
+        "Felipe Furquim",
+        "Gabriel Garcia",
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Gabriel Garcia"
+      ],
+      "defensor": [
+        "Felipe Furquim"
+      ],
+      "goleiro": [
+        "Alessandro"
+      ],
+      "capitao": [
+        "Alex Gabbia"
+      ],
+      "coringa": [
+        "Renan Menezes",
+        "Robson Souza"
+      ],
+      "bola_murcha": [
+        "Kaue Nazario"
+      ]
+    }
+  },
+  {
+    "data": "2026-03-05",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Hericky Padilha",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Luan Santos",
+      "Mateus Lopes",
+      "Renan Vieira",
+      "Robson Souza",
+      "Ronaldo Luiz",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Alex Gabbia": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Andre Nanni": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Ari Santos": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Hericky Padilha": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Leo Pirola": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Luan Santos": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Vieira": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Ronaldo Luiz": {
+        "gols": 3,
+        "assists": 1
+      },
+      "William Ramos": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Felipe Furquim"
+      ],
+      "craque": [
+        "Leo Pirola"
+      ],
+      "artilheiro": [
+        "Felipe Furquim"
+      ],
+      "lider_assist": [
+        "Felipe Furquim"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Alessandro"
+      ],
+      "capitao": [
+        "Gabriel Garcia"
+      ],
+      "coringa": [
+        "Robson Souza",
+        "Ronaldo Luiz"
+      ],
+      "bola_murcha": [
+        "Kaue Nazario"
+      ]
+    }
+  },
+  {
+    "data": "2026-03-12",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Maicon Facioli",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Renan Vieira",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Andre Nanni": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Ari Santos": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Carlos Eduardo": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Gabriel Garcia": {
+        "gols": 9,
+        "assists": 4
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Leo Pirola": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Maicon Facioli": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Mateus Almeida": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 0,
+        "assists": 5
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Gabriel Garcia"
+      ],
+      "craque": [
+        "Mateus Almeida"
+      ],
+      "artilheiro": [
+        "Gabriel Garcia"
+      ],
+      "lider_assist": [
+        "Robson Souza"
+      ],
+      "defensor": [
+        "Alex Gabbia",
+        "Carlos Eduardo"
+      ],
+      "goleiro": [
+        "Maicon Facioli"
+      ],
+      "capitao": [
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Robson Souza"
+      ],
+      "bola_murcha": [
+        "Andre Nanni"
+      ]
+    }
+  },
+  {
+    "data": "2026-03-19",
+    "presentes": [
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Ari Santos",
+      "Christian Dias",
+      "Felipe Furquim",
+      "Kaike Almeida",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Renan Vieira",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 5
+      },
+      "Andre Nanni": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Ari Santos": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Christian Dias": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Felipe Furquim": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Kaike Almeida": {
+        "gols": 6,
+        "assists": 5
+      },
+      "Kaue Nazario": {
+        "gols": 16,
+        "assists": 4
+      },
+      "Leo Pirola": {
+        "gols": 11,
+        "assists": 3
+      },
+      "Mateus Almeida": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Renan Vieira": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Robson Souza": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Kaue Nazario"
+      ],
+      "craque": [
+        "Kaike Almeida"
+      ],
+      "artilheiro": [
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Alex Gabbia",
+        "Kaike Almeida"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Mateus Falcao"
+      ],
+      "capitao": [
+        "Leo Pirola",
+        "Renan Vieira"
+      ],
+      "coringa": [
+        "Christian Dias",
+        "Robson Souza"
+      ],
+      "bola_murcha": [
+        "Andre Nanni"
+      ]
+    }
+  },
+  {
+    "data": "2026-03-24",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Christian Dias",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 0,
+        "assists": 3
+      },
+      "Andre Nanni": {
+        "gols": 1,
+        "assists": 4
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Christian Dias": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Leo Pirola": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Mateus Almeida": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Matheus Henrique": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 3
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Kaue Nazario"
+      ],
+      "craque": [
+        "Mateus Almeida"
+      ],
+      "artilheiro": [
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Felipe Furquim",
+        "Leo Pirola"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Felipe Furquim"
+      ],
+      "capitao": [
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Carlos Eduardo",
+        "Ronaldo Luiz"
+      ],
+      "bola_murcha": [
+        "Leo Pirola"
+      ]
+    }
+  },
+  {
+    "data": "2026-04-02",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Christian Dias",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Lopes",
+      "Renan Vieira",
+      "Robson Souza",
+      "Ronaldo Luiz",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Christian Dias": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 5,
+        "assists": 5
+      },
+      "Gustavo Ortiz": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 6,
+        "assists": 0
+      },
+      "Leo Pirola": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Robson Souza": {
+        "gols": 0,
+        "assists": 3
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 2
+      },
+      "William Ramos": {
+        "gols": 4,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Gabriel Garcia"
+      ],
+      "craque": [
+        "Gustavo Ortiz",
+        "Kaue Nazario",
+        "William Ramos"
+      ],
+      "artilheiro": [
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Gabriel Garcia"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Carlos Eduardo"
+      ],
+      "capitao": [
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Mateus Lopes"
+      ],
+      "bola_murcha": [
+        "Leo Pirola"
+      ]
+    }
+  },
+  {
+    "data": "2026-04-09",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Ari Santos",
+      "Felipe Furquim",
+      "Gustavo Hessel",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Andre Nanni": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Ari Santos": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Felipe Furquim": {
+        "gols": 7,
+        "assists": 3
+      },
+      "Gustavo Hessel": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 10,
+        "assists": 3
+      },
+      "Leo Pirola": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Matheus Henrique": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Renan Lourenco": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 4,
+        "assists": 5
+      },
+      "Ronaldo Luiz": {
+        "gols": 0,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Kaue Nazario"
+      ],
+      "craque": [
+        "Matheus Henrique"
+      ],
+      "artilheiro": [
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Robson Souza"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Renan Lourenco"
+      ],
+      "capitao": [
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Robson Souza"
+      ],
+      "bola_murcha": [
+        "Renan Menezes"
+      ]
+    }
+  },
+  {
+    "data": "2026-04-16",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Christian Dias",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Robson Souza",
+      "Ronaldo Luiz",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Andre Nanni": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Christian Dias": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Gabriel Garcia": {
+        "gols": 5,
+        "assists": 6
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 3
+      },
+      "Leo Pirola": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Matheus Henrique": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Renan Lourenco": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 0,
+        "assists": 2
+      },
+      "William Ramos": {
+        "gols": 0,
+        "assists": 4
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Gabriel Garcia"
+      ],
+      "craque": [
+        "Kaue Nazario",
+        "Matheus Henrique"
+      ],
+      "artilheiro": [
+        "Gabriel Garcia",
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Gabriel Garcia"
+      ],
+      "defensor": [
+        "Ronaldo Luiz"
+      ],
+      "goleiro": [
+        "Alessandro"
+      ],
+      "capitao": [
+        "Alex Gabbia",
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Christian Dias"
+      ],
+      "bola_murcha": [
+        "Ronaldo Luiz"
+      ]
+    }
+  },
+  {
+    "data": "2026-04-23",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Carlos Eduardo",
+      "Christian Dias",
+      "Everton",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Almeida",
+      "Mateus Lopes",
+      "Robson Souza",
+      "Ronaldo Luiz",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Andre Nanni": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Carlos Eduardo": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Christian Dias": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Everton": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Gabriel Garcia": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Leo Pirola": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Mateus Almeida": {
+        "gols": 2,
+        "assists": 6
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Robson Souza": {
+        "gols": 3,
+        "assists": 6
+      },
+      "Ronaldo Luiz": {
+        "gols": 0,
+        "assists": 5
+      },
+      "William Ramos": {
+        "gols": 2,
+        "assists": 1
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Gabriel Garcia",
+        "Kaue Nazario",
+        "Robson Souza"
+      ],
+      "craque": [
+        "Mateus Almeida"
+      ],
+      "artilheiro": [
+        "Kaue Nazario"
+      ],
+      "lider_assist": [
+        "Mateus Almeida",
+        "Robson Souza"
+      ],
+      "defensor": [
+        "Ronaldo Luiz"
+      ],
+      "goleiro": [
+        "Alessandro"
+      ],
+      "capitao": [
+        "Alessandro"
+      ],
+      "coringa": [
+        "Everton"
+      ],
+      "bola_murcha": [
+        "Christian Dias",
+        "William Ramos"
+      ]
+    }
+  },
+  {
+    "data": "2026-04-29",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Andre Nanni",
+      "Christian Dias",
+      "Everton",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Leo Pirola",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Renan Menezes",
+      "Richard Magaldi",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Andre Nanni": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Christian Dias": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Everton": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 5,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Leo Pirola": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Mateus Almeida": {
+        "gols": 7,
+        "assists": 3
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Richard Magaldi": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Robson Souza": {
+        "gols": 6,
+        "assists": 4
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 4
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Mateus Almeida",
+        "Robson Souza"
+      ],
+      "craque": [
+        "Gabriel Garcia"
+      ],
+      "artilheiro": [
+        "Mateus Almeida"
+      ],
+      "lider_assist": [
+        "Felipe Furquim",
+        "Kaue Nazario",
+        "Leo Pirola",
+        "Robson Souza",
+        "Ronaldo Luiz"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Alessandro"
+      ],
+      "capitao": [
+        "Alessandro",
+        "Leo Pirola"
+      ],
+      "coringa": [
+        "Christian Dias",
+        "Richard Magaldi"
+      ],
+      "bola_murcha": [
+        "Andre Nanni"
+      ]
+    }
+  },
+  {
+    "data": "2026-05-07",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Kaue Nazario",
+      "Mateus Almeida",
+      "Mateus Lopes",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Renan Vieira",
+      "Richard Magaldi",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 5
+      },
+      "Ari Santos": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 7,
+        "assists": 0
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 5
+      },
+      "Mateus Almeida": {
+        "gols": 8,
+        "assists": 4
+      },
+      "Mateus Lopes": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Renan Lourenco": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Renan Menezes": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Vieira": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Richard Magaldi": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Robson Souza": {
+        "gols": 8,
+        "assists": 3
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 5
+      }
+    },
+    "destaques": {
+      "mvp": [
+        "Kaue Nazario",
+        "Mateus Almeida"
+      ],
+      "craque": [
+        "Felipe Furquim"
+      ],
+      "artilheiro": [
+        "Mateus Almeida",
+        "Robson Souza"
+      ],
+      "lider_assist": [
+        "Alex Gabbia",
+        "Kaue Nazario",
+        "Ronaldo Luiz"
+      ],
+      "defensor": [
+        "Alex Gabbia"
+      ],
+      "goleiro": [
+        "Renan Lourenco"
+      ],
+      "capitao": [
+        "Alessandro",
+        "Ronaldo Luiz"
+      ],
+      "coringa": [
+        "Mateus Lopes",
+        "Richard Magaldi",
+        "Robson Souza"
+      ],
+      "bola_murcha": [
+        "Richard Magaldi"
+      ]
+    }
+  },
+  {
+    "data": "2026-05-14",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Christian Dias",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Kaue Nazario",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Renan Menezes",
+      "Richard Magaldi",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 4
+      },
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Ari Santos": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Carlos Eduardo": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Christian Dias": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 3
+      },
+      "Mateus Almeida": {
+        "gols": 7,
+        "assists": 3
+      },
+      "Mateus Falcao": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Richard Magaldi": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 4,
+        "assists": 6
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 2
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-05-21",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Kaleb",
+      "Kaue Nazario",
+      "Mateus Almeida",
+      "Mateus Lopes",
+      "Renan Vieira",
+      "Richard Santos",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Ari Santos": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Gabriel Garcia": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Gustavo Ortiz": {
+        "gols": 1,
+        "assists": 4
+      },
+      "Kaleb": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Mateus Almeida": {
+        "gols": 7,
+        "assists": 3
+      },
+      "Mateus Lopes": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Renan Vieira": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Richard Santos": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Robson Souza": {
+        "gols": 6,
+        "assists": 6
+      },
+      "Ronaldo Luiz": {
+        "gols": 4,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-05-28",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Giovane",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Paulo",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Richard Magaldi",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Ari Santos": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Carlos Eduardo": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 2,
+        "assists": 8
+      },
+      "Giovane": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 8,
+        "assists": 1
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Paulo": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Renan Lourenco": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Richard Magaldi": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 4
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-06-05",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Charles Formes",
+      "Felipe Furquim",
+      "Giovane",
+      "Kaue Nazario",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Paulo",
+      "Renan Menezes",
+      "Richard Magaldi",
+      "Robson Souza",
+      "Roger Formes"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Ari Santos": {
+        "gols": 2,
+        "assists": 7
+      },
+      "Carlos Eduardo": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Charles Formes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Giovane": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Mateus Almeida": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Mateus Falcao": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Paulo": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Richard Magaldi": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Roger Formes": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-06-11",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Gabriel Garcia",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Matheus Henrique",
+      "Nilton",
+      "Paulo",
+      "Renan Vieira",
+      "Richard Santos",
+      "Robson Souza",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Jonatas Padilha": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 4
+      },
+      "Matheus Henrique": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Nilton": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Paulo": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Richard Santos": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Robson Souza": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 2
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-06-18",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Ari Santos",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Nilton",
+      "Renan Lourenco",
+      "Renan Menezes",
+      "Robson Souza"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Ari Santos": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Jonatas Padilha": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Matheus Henrique": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Nilton": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Renan Lourenco": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Robson Souza": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-06-25",
+    "presentes": [
+      "Alessandro",
+      "Alex Gabbia",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Hericky Padilha",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Matheus Pimentel",
+      "Nilton",
+      "Renan Vieira",
+      "Robson Souza",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alessandro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 6
+      },
+      "Gustavo Ortiz": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Hericky Padilha": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Jonatas Padilha": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Matheus Pimentel": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Nilton": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Renan Vieira": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 1,
+        "assists": 2
+      },
+      "William Ramos": {
+        "gols": 4,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-07-02",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Hericky Padilha",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Nilton",
+      "Renan Vieira",
+      "Richard Santos",
+      "Robson Souza",
+      "Roger Formes"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Gustavo Ortiz": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Hericky Padilha": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Nilton": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 0,
+        "assists": 3
+      },
+      "Richard Santos": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Robson Souza": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Roger Formes": {
+        "gols": 4,
+        "assists": 0
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-07-08",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Hericky Padilha",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Nilton",
+      "Roger Formes",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Gustavo Ortiz": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Hericky Padilha": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Mateus Falcao": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Nilton": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Roger Formes": {
+        "gols": 3,
+        "assists": 0
+      },
+      "William Ramos": {
+        "gols": 2,
+        "assists": 0
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-07-16",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Hessel",
+      "Gustavo Ortiz",
+      "Isaac",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Ronaldo Luiz",
+      "Victor"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Carlos Eduardo": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 7,
+        "assists": 6
+      },
+      "Gabriel Garcia": {
+        "gols": 10,
+        "assists": 7
+      },
+      "Gustavo Hessel": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Gustavo Ortiz": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Isaac": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 5,
+        "assists": 6
+      },
+      "Kaue Nazario": {
+        "gols": 9,
+        "assists": 1
+      },
+      "Mateus Falcao": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Matheus Henrique": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 0,
+        "assists": 4
+      },
+      "Victor": {
+        "gols": 1,
+        "assists": 0
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-07-23",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gustavo Ortiz",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Nilton",
+      "Paulo",
+      "Richard Santos",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Gustavo Ortiz": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Jonatas Padilha": {
+        "gols": 5,
+        "assists": 6
+      },
+      "Kaue Nazario": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Nilton": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Paulo": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Richard Santos": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Ronaldo Luiz": {
+        "gols": 3,
+        "assists": 4
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-07-31",
+    "presentes": [
+      "Alex Gabbia",
+      "Christian Dias",
+      "Felipe Almeida",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Guto",
+      "Jonatas Padilha",
+      "Kaike Almeida",
+      "Kaue Nazario",
+      "Mateus Almeida",
+      "Mateus Lopes",
+      "Nilton",
+      "Roger Formes"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Christian Dias": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Felipe Almeida": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Gabriel Garcia": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Guto": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 4,
+        "assists": 5
+      },
+      "Kaike Almeida": {
+        "gols": 8,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Mateus Almeida": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Mateus Lopes": {
+        "gols": 6,
+        "assists": 1
+      },
+      "Nilton": {
+        "gols": 8,
+        "assists": 7
+      },
+      "Roger Formes": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-08-06",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Giovane",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Paulo",
+      "Renan Menezes",
+      "Richard Santos",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 5,
+        "assists": 3
+      },
+      "Felipe Furquim": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Giovane": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Paulo": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Richard Santos": {
+        "gols": 12,
+        "assists": 3
+      },
+      "Ronaldo Luiz": {
+        "gols": 4,
+        "assists": 4
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-08-13",
+    "presentes": [
+      "Alex Gabbia",
+      "Gustavo Hessel",
+      "Guto",
+      "Jonatas Padilha",
+      "Julio Campos",
+      "Kaue Nazario",
+      "Luan Oliveira",
+      "Lukinha",
+      "Maicon Facioli",
+      "Mateus Lopes",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Gustavo Hessel": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Guto": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 2,
+        "assists": 6
+      },
+      "Julio Campos": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Kaue Nazario": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Luan Oliveira": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Lukinha": {
+        "gols": 7,
+        "assists": 4
+      },
+      "Maicon Facioli": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Mateus Lopes": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Ronaldo Luiz": {
+        "gols": 0,
+        "assists": 2
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-08-20",
+    "presentes": [
+      "Alex Gabbia",
+      "Elvis Leonidas",
+      "Felipe Furquim",
+      "Guto",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Luan Santos",
+      "Marcos Barioni",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Nilton",
+      "Renan Menezes",
+      "Rodrigo Ribeiro",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Elvis Leonidas": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Guto": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Jonatas Padilha": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 5
+      },
+      "Luan Santos": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Marcos Barioni": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Mateus Almeida": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Mateus Falcao": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Nilton": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  },
+  {
+    "data": "2026-08-27",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Giovane",
+      "Guto",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Luan Santos",
+      "Mateus Almeida",
+      "Mateus Lopes",
+      "Michael Santos",
+      "Nilton",
+      "Paulo",
+      "Richard Magaldi",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 5,
+        "assists": 2
+      },
+      "Felipe Furquim": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 7,
+        "assists": 5
+      },
+      "Giovane": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Guto": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 4,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 8,
+        "assists": 3
+      },
+      "Luan Santos": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Mateus Almeida": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Michael Santos": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Nilton": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Paulo": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Richard Magaldi": {
+        "gols": 1,
+        "assists": 4
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 1
+      }
+    },
+    "destaques": {}
+  }
+]
