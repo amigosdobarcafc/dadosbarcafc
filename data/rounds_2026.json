@@ -3216,5 +3216,226 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-09-03",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Guto",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Nilton",
+      "Renan Menezes",
+      "Rodrigo Ribeiro"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 77,
+        "assists": 72
+      },
+      "Carlos Eduardo": {
+        "gols": 29,
+        "assists": 19
+      },
+      "Felipe Furquim": {
+        "gols": 46,
+        "assists": 45
+      },
+      "Gabriel Garcia": {
+        "gols": 107,
+        "assists": 53
+      },
+      "Guto": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Jonatas Padilha": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Kaue Nazario": {
+        "gols": 190,
+        "assists": 75
+      },
+      "Mateus Falcao": {
+        "gols": 54,
+        "assists": 24
+      },
+      "Mateus Lopes": {
+        "gols": 28,
+        "assists": 23
+      },
+      "Matheus Henrique": {
+        "gols": 37,
+        "assists": 17
+      },
+      "Nilton": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 42,
+        "assists": 40
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Alessandro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Andre Nanni": {
+        "gols": 8,
+        "assists": 10
+      },
+      "Ari Santos": {
+        "gols": 12,
+        "assists": 15
+      },
+      "Charles Formes": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Christian Dias": {
+        "gols": 21,
+        "assists": 17
+      },
+      "Elvis Leonidas": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Everton": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Felipe Almeida": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Giovane": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Gustavo Hessel": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Gustavo Ortiz": {
+        "gols": 44,
+        "assists": 29
+      },
+      "Hericky Padilha": {
+        "gols": 37,
+        "assists": 16
+      },
+      "Isaac": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Julio Campos": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Kaike Almeida": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Kaleb": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Leo Pirola": {
+        "gols": 122,
+        "assists": 58
+      },
+      "Luan Oliveira": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Luan Santos": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Lucas Silva": {
+        "gols": 114,
+        "assists": 61
+      },
+      "Lukinha": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Maicon Facioli": {
+        "gols": 2,
+        "assists": 4
+      },
+      "Marcos Barioni": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Mateus Almeida": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Matheus Pimentel": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Michael Santos": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Paulo": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Rafael Fellipe": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Renan Lourenco": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 95,
+        "assists": 82
+      },
+      "Richard Magaldi": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Richard Santos": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 48,
+        "assists": 24
+      },
+      "Roger Formes": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 46,
+        "assists": 21
+      },
+      "Victor": {
+        "gols": 0,
+        "assists": 0
+      },
+      "William Ramos": {
+        "gols": 37,
+        "assists": 16
+      }
+    },
+    "destaques": {}
   }
 ]
