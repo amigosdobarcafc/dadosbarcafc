@@ -99,14 +99,14 @@
   td.avg{color:var(--green); font-weight:700; text-align:center; font-family:'Oswald',sans-serif;}
   small{color:var(--text-faint); font-weight:400;}
 
-  .curio-strip{display:flex; gap:14px; overflow-x:auto; padding:4px 2px 16px; margin-bottom:6px; scrollbar-width:thin;}
+  .curio-strip{display:flex; flex-direction:column; gap:14px; margin-bottom:26px;}
   .curio-card{
-    flex:0 0 auto; width:250px; background:var(--bg-card-2); border:1px solid var(--border); border-radius:14px;
-    padding:18px; position:relative; overflow:hidden;
+    display:flex; align-items:center; gap:18px; background:var(--bg-card-2); border:1px solid var(--border); border-radius:14px;
+    padding:18px 22px; position:relative; overflow:hidden;
   }
-  .curio-card .ic{font-size:1.6rem; margin-bottom:10px;}
-  .curio-card p{font-size:.84rem; color:var(--text); margin:0; line-height:1.4;}
-  .curio-card::before{content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent);}
+  .curio-card .ic{font-size:1.8rem; flex:0 0 auto;}
+  .curio-card p{font-size:.9rem; color:var(--text); margin:0; line-height:1.4;}
+  .curio-card::before{content:''; position:absolute; top:0; bottom:0; left:0; width:3px; background:var(--accent);}
 
   .section-title{display:flex; align-items:center; gap:10px; margin:0 0 16px; font-size:1rem; color:var(--text);}
   .section-title .bar{width:4px; height:18px; background:var(--accent); border-radius:2px;}
@@ -148,12 +148,13 @@
 <footer>
   <a class="insta-btn" href="https://www.instagram.com/amigosbarcafc/" target="_blank">📸 Siga @amigosbarcafc</a>
   <span class="credit">Dados atualizados automaticamente após cada rodada</span>
+  <span class="credit">Website desenvolvido por Alexandre Gabbia</span>
 </footer>
 
 <script src="abfc-stats.js"></script>
 <script>
 let DATA = null;
-let activeTab = 'geral';
+let activeTab = 'temporadas';
 
 function animateNumber(el, to){
   let start = 0; const dur = 900; const t0 = performance.now();
@@ -247,7 +248,8 @@ function render(){
       btn.onclick = ()=>{
         [...nav.children].forEach(c=>c.classList.remove('active'));
         btn.classList.add('active');
-        document.getElementById('seasonBody').innerHTML = renderSecao(ABFC.calcular(DATA.allRounds.filter(r=>r.year===DATA.currentYear && s.months.includes(r.month))));
+        const rounds = DATA.allRounds.filter(r=>r.year===DATA.currentYear && s.months.includes(r.month));
+        document.getElementById('seasonBody').innerHTML = renderCuriosidades(rounds) + renderSecao(ABFC.calcular(rounds));
       };
       nav.appendChild(btn);
     });
