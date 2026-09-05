@@ -3216,5 +3216,73 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-09-05",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Guto",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Nilton",
+      "Renan Menezes"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Felipe Furquim": {
+        "gols": 7,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 9,
+        "assists": 7
+      },
+      "Guto": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Jonatas Padilha": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 6
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Mateus Lopes": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Matheus Henrique": {
+        "gols": 3,
+        "assists": 3
+      },
+      "Nilton": {
+        "gols": 2,
+        "assists": 3
+      },
+      "Renan Menezes": {
+        "gols": 2,
+        "assists": 1
+      }
+    },
+    "destaques": {}
   }
 ]
