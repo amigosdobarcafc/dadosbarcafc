@@ -108,9 +108,9 @@
 
   /* ---- template das imagens (1080x1350, 4:5 Instagram) ---- */
   .ig-card{
-    width:1080px; height:1350px; background:radial-gradient(900px 500px at 50% -120px, rgba(255,106,0,.22), transparent 60%), #08080A;
+    width:1080px; height:auto; min-height:700px; background:radial-gradient(900px 500px at 50% -120px, rgba(255,106,0,.22), transparent 60%), #08080A;
     color:#F4F4F2; font-family:'Inter',sans-serif;
-    padding:64px 60px; position:relative; overflow:hidden; display:flex; flex-direction:column;
+    padding:64px 60px 50px; position:relative; overflow:hidden; display:flex; flex-direction:column;
   }
   .ig-card::before{
     content:''; position:absolute; inset:0; opacity:.05; pointer-events:none;
@@ -130,18 +130,18 @@
     background:linear-gradient(150deg,#FF7A1A 0%,#B84400 100%); border-radius:26px; padding:34px 42px; text-align:center; margin-bottom:38px;
     position:relative; overflow:hidden; box-shadow:0 30px 60px -20px rgba(255,106,0,.5);
   }
-  .ig-mvp::after{content:'🏆'; position:absolute; font-size:130px; opacity:.14; right:-10px; bottom:-30px; transform:rotate(-10deg);}
-  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; letter-spacing:3px; color:#1A0D00; opacity:.7;}
+  .ig-mvp .glowring{position:absolute; width:260px; height:260px; border-radius:50%; border:2px solid rgba(255,255,255,.18); right:-70px; bottom:-90px;}
+  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; letter-spacing:3px; color:#1A0D00; opacity:.7; position:relative; z-index:1;}
   .ig-mvp h2{font-family:'Oswald',sans-serif; font-size:54px; margin:8px 0 2px; color:#1A0D00; position:relative; z-index:1;}
   .ig-mvp .n{font-size:23px; color:#1A0D00; opacity:.82; font-weight:600; position:relative; z-index:1;}
 
-  .ig-table{background:#131315; border:1px solid #232326; border-radius:22px; padding:8px 0; flex:1; position:relative; z-index:1;}
+  .ig-table{background:#131315; border:1px solid #232326; border-radius:22px; padding:8px 0; position:relative; z-index:1;}
   .ig-thead{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; padding:16px 28px; font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:1px; color:#6A6A70; text-transform:uppercase; border-bottom:1px solid #232326;}
   .ig-trow{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; align-items:center; padding:15px 28px; font-size:24px; border-bottom:1px solid #1B1B1D;}
+  .ig-thead.c5, .ig-trow.c5{grid-template-columns:60px 1fr 110px 110px 130px;}
   .ig-trow:last-child{border-bottom:none;}
   .ig-trow:nth-child(even){background:rgba(255,255,255,.015);}
   .ig-rank{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:20px; background:#232326; color:#8C8C92;}
-  .ig-trow:nth-child(1) .ig-rank, .ig-thead + .ig-trow:first-of-type .ig-rank{}
   .r1 .ig-rank{background:linear-gradient(145deg,#FFD37A,#C98A1F); color:#1A0D00;}
   .r2 .ig-rank{background:linear-gradient(145deg,#E4E4E8,#9A9AA2); color:#1A0D00;}
   .r3 .ig-rank{background:linear-gradient(145deg,#E3A16C,#9C5A2C); color:#1A0D00;}
@@ -291,7 +291,9 @@
     <section id="tab-imagens" style="display:none;">
       <div class="card">
         <h2>Gerar imagem para o Instagram</h2>
-        <div class="row" style="margin-bottom:6px;">
+        <label for="imgRoundSelect">Rodada</label>
+        <select id="imgRoundSelect" style="max-width:280px;"></select>
+        <div class="row" style="margin-top:16px;">
           <button class="btn" onclick="renderImgRodada()">📋 Estatísticas da rodada</button>
           <button class="btn btn-ghost" onclick="renderImgTemporada()">🏆 BarçaScore (ranking da temporada)</button>
           <button class="btn btn-ghost" onclick="renderImgCuriosidades()">✨ Curiosidades da rodada</button>
@@ -401,6 +403,7 @@ function showTab(tab){
   document.querySelectorAll('nav.tabs button').forEach(b=>{
     b.classList.toggle('active', b.dataset.tab===tab);
   });
+  if (tab === 'imagens') populateImgRoundSelect();
 }
 
 // ---------- REGISTRAR RODADA ----------
@@ -699,34 +702,42 @@ async function renderAndShow(html){
 
 function rankClass(i){ return i===0?'r1':i===1?'r2':i===2?'r3':''; }
 
-function currentSeasonRounds(data){
-  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
-  const last = seasonRounds[seasonRounds.length-1];
-  if (!last) return {rounds:[], seasonInfo:null, last:null};
-  const seasonInfo = ABFC.SEASONS.find(s => s.months.includes(last.month)) || ABFC.SEASONS[0];
-  const rounds = seasonRounds.filter(r => seasonInfo.months.includes(r.month));
-  return {rounds, seasonInfo, last};
+async function populateImgRoundSelect(){
+  const data = await getImgData();
+  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear).slice().sort((a,b)=> b.data.localeCompare(a.data));
+  const sel = document.getElementById('imgRoundSelect');
+  sel.innerHTML = seasonRounds.map(r => `<option value="${r.data}">${fmtDateBR(r.data)}</option>`).join('');
+}
+
+function getSelectedRound(data){
+  const sel = document.getElementById('imgRoundSelect');
+  const dateSel = sel.value;
+  return data.allRounds.find(r => r.data === dateSel) || data.allRounds.filter(r=>r.year===data.currentYear).slice(-1)[0];
+}
+
+function seasonUpToRound(data, round){
+  const seasonInfo = ABFC.SEASONS.find(s => s.months.includes(round.month)) || ABFC.SEASONS[0];
+  return data.allRounds.filter(r => r.year===round.year && seasonInfo.months.includes(r.month) && r.data <= round.data);
 }
 
 async function renderImgRodada(){
   const data = await getImgData();
-  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
-  const last = seasonRounds[seasonRounds.length-1];
-  if (!last) { toast('Nenhuma rodada encontrada', true); return; }
-  const d = ABFC.calcular([last]);
+  const round = getSelectedRound(data);
+  if (!round) { toast('Nenhuma rodada encontrada', true); return; }
+  const d = ABFC.calcular([round]);
   const lider = ABFC.topN(d.ga, 1)[0];
   const rows = ABFC.topN(d.ga, 10);
 
   const html = `<div class="ig-card"><div class="ig-glow"></div>
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>ESTATÍSTICAS DA RODADA</h1></div></div>
-    <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(last.data)} · TEMPORADA ${data.currentYear}</div>
-    ${lider ? `<div class="ig-mvp"><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
+    <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(round.data)} · TEMPORADA ${data.currentYear}</div>
+    ${lider ? `<div class="ig-mvp"><div class="glowring"></div><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
     <div class="ig-table">
-      <div class="ig-thead"><span>#</span><span>Atleta</span><span style="text-align:center;">G</span><span style="text-align:center;">A</span><span style="text-align:center;">PG</span><span></span><span></span><span></span></div>
+      <div class="ig-thead c5"><span>#</span><span>Atleta</span><span style="text-align:center;">G</span><span style="text-align:center;">A</span><span style="text-align:center;">PG</span></div>
       ${rows.map(([n,v],i)=>{
-        const st = last.estatisticas[n] || {gols:0, assists:0};
-        return `<div class="ig-trow ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num">${st.gols||0}</span><span class="ig-num">${st.assists||0}</span><span class="ig-num hi">${v}</span><span></span><span></span><span></span></div>`;
-      }).join('') || '<div class="ig-trow"><span></span><span>Sem participações em gols nesta rodada</span></div>'}
+        const st = round.estatisticas[n] || {gols:0, assists:0};
+        return `<div class="ig-trow c5 ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num">${st.gols||0}</span><span class="ig-num">${st.assists||0}</span><span class="ig-num hi">${v}</span></div>`;
+      }).join('') || '<div class="ig-trow" style="grid-template-columns:1fr;"><span>Sem participações em gols nesta rodada</span></div>'}
     </div>
     <div class="ig-foot"><span class="l">amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
   </div>`;
@@ -735,15 +746,17 @@ async function renderImgRodada(){
 
 async function renderImgTemporada(){
   const data = await getImgData();
-  const {rounds, seasonInfo, last} = currentSeasonRounds(data);
-  if (!rounds.length) { toast('Sem dados na temporada atual', true); return; }
+  const round = getSelectedRound(data);
+  if (!round) { toast('Nenhuma rodada encontrada', true); return; }
+  const rounds = seasonUpToRound(data, round);
+  const seasonInfo = ABFC.SEASONS.find(s => s.months.includes(round.month)) || ABFC.SEASONS[0];
   const d = ABFC.calcular(rounds);
   const rows = ABFC.topN(d.ga, 10);
 
   const html = `<div class="ig-card"><div class="ig-glow"></div>
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>BARÇASCORE</h1></div></div>
-    <div class="ig-chip"><span class="dot"></span>${seasonInfo.label.toUpperCase()} ${data.currentYear} · APÓS A RODADA DE ${fmtDateBR(last.data)}</div>
-    <div class="ig-table" style="margin-top:6px;">
+    <div class="ig-chip"><span class="dot"></span>${seasonInfo.label.toUpperCase()} ${data.currentYear} · APÓS A RODADA DE ${fmtDateBR(round.data)}</div>
+    <div class="ig-table">
       <div class="ig-thead"><span>#</span><span>Atleta</span><span style="text-align:center;">J</span><span style="text-align:center;">G</span><span style="text-align:center;">GPJ</span><span style="text-align:center;">A</span><span style="text-align:center;">APJ</span><span style="text-align:center;">PG</span></div>
       ${rows.map(([n,v],i)=>{
         const j = d.j[n]||0, g = d.g[n]||0, a = d.a[n]||0;
@@ -758,15 +771,14 @@ async function renderImgTemporada(){
 
 async function renderImgCuriosidades(){
   const data = await getImgData();
-  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
-  const last = seasonRounds[seasonRounds.length-1];
-  if (!last) { toast('Nenhuma rodada encontrada', true); return; }
-  const curios = ABFC.curiosidadesDaRodada(data.allRounds, data.legacy, last).slice(0, 6);
+  const round = getSelectedRound(data);
+  if (!round) { toast('Nenhuma rodada encontrada', true); return; }
+  const curios = ABFC.curiosidadesDaRodada(data.allRounds, data.legacy, round).slice(0, 6);
   if (!curios.length) { toast('Sem curiosidades pra essa rodada', true); return; }
 
   const html = `<div class="ig-card"><div class="ig-glow"></div>
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>CURIOSIDADES</h1></div></div>
-    <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(last.data)} · TEMPORADA ${data.currentYear}</div>
+    <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(round.data)} · TEMPORADA ${data.currentYear}</div>
     <div class="ig-curio-list">
       ${curios.map(c=>`<div class="ig-curio"><div class="icwrap"><span>${c.icon}</span></div><p>${c.text}</p></div>`).join('')}
     </div>
