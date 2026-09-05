@@ -103,7 +103,7 @@ const ABFC = (function(){
     const out = [];
     function checkMarcos(b, u, name, label, escopo, icon){
       MARCOS.forEach(m=>{
-        if (b < m && u >= m) out.push({icon, text: `${name} chegou aos ${m} ${label} ${escopo}!`});
+        if (b < m && u >= m) out.push({icon, text: `${name} chegou aos ${m} ${label} ${escopo}!`, cat:'marco'});
       });
     }
 
@@ -116,7 +116,7 @@ const ABFC = (function(){
 
     (targetRound.presentes||[]).forEach(name=>{
       [10,25,50,75,100,150,200].forEach(m=>{
-        if ((sB.j[name]||0) < m && (sU.j[name]||0) >= m) out.push({icon:'📅', text:`${name} completou ${m} presenças na temporada!`});
+        if ((sB.j[name]||0) < m && (sU.j[name]||0) >= m) out.push({icon:'📅', text:`${name} completou ${m} presenças na temporada!`, cat:'presenca'});
       });
     });
 
@@ -125,10 +125,10 @@ const ABFC = (function(){
       const t = (st.gols||0)+(st.assists||0);
       if (t>0 && (!best || t>best.total)) best = {n, total:t, g:st.gols||0, a:st.assists||0};
     });
-    if (best && best.total>=4) out.push({icon:'🔥', text:`${best.n} foi o destaque da rodada: ${best.g} gols e ${best.a} assistências.`});
+    if (best && best.total>=4) out.push({icon:'🔥', text:`${best.n} foi o destaque da rodada: ${best.g} gols e ${best.a} assistências.`, cat:'destaque'});
 
     Object.entries(targetRound.estatisticas||{}).forEach(([n,st])=>{
-      if ((st.gols||0)>0 && (sB.g[n]||0)===0) out.push({icon:'✨', text:`Primeiro gol de ${n} na temporada!`});
+      if ((st.gols||0)>0 && (sB.g[n]||0)===0) out.push({icon:'✨', text:`Primeiro gol de ${n} na temporada!`, cat:'primeiro'});
     });
 
     Object.keys(targetRound.estatisticas||{}).forEach(name=>{
@@ -138,11 +138,53 @@ const ABFC = (function(){
         const st = (seasonUpTo[i].estatisticas||{})[name];
         if (st && (st.gols||0)>0) streak++; else break;
       }
-      if (streak>=3) out.push({icon:'📈', text:`${name} balançou as redes em ${streak} rodadas seguidas!`});
+      if (streak>=3) out.push({icon:'📈', text:`${name} balançou as redes em ${streak} rodadas seguidas!`, cat:'sequencia'});
+    });
+
+    // estreante: primeira vez que esse nome aparece em qualquer rodada da história
+    (targetRound.presentes||[]).forEach(name=>{
+      const jaJogou = before.some(r => (r.presentes||[]).includes(name));
+      if (!jaJogou) out.push({icon:'🆕', text:`Bem-vindo(a), ${name}! Estreia com a camisa do ABFC.`, cat:'estreante'});
+    });
+
+    // presença fiel sem gol na temporada (destaque pra quem não é artilheiro)
+    (targetRound.presentes||[]).forEach(name=>{
+      const totalGA = (sU.g[name]||0) + (sU.a[name]||0);
+      const presencas = sU.j[name] || 0;
+      if (totalGA === 0 && presencas >= 5){
+        out.push({icon:'🛡️', text:`${name} já soma ${presencas} presenças na temporada sem balançar as redes, mas segue sendo presença certa em campo.`, cat:'fiel'});
+      }
+    });
+
+    // voltou a participar de gol depois de um jejum
+    Object.entries(targetRound.estatisticas||{}).forEach(([name,st])=>{
+      if ((st.gols||0)===0 && (st.assists||0)===0) return;
+      let jejum = 0;
+      for (let i=seasonBefore.length-1; i>=0; i--){
+        const r = seasonBefore[i];
+        if (!(r.presentes||[]).includes(name)) continue;
+        const stAnterior = (r.estatisticas||{})[name];
+        if (stAnterior && ((stAnterior.gols||0)>0 || (stAnterior.assists||0)>0)) break;
+        jejum++;
+      }
+      if (jejum >= 3) out.push({icon:'⏳', text:`${name} voltou a participar de gol depois de ${jejum} rodadas em jejum.`, cat:'jejum'});
     });
 
     const seen = new Set();
-    return out.filter(c=>{ if (seen.has(c.text)) return false; seen.add(c.text); return true; }).slice(0, 8);
+    const unicos = out.filter(c=>{ if (seen.has(c.text)) return false; seen.add(c.text); return true; });
+
+    // diversifica: no máximo 2 por categoria, alternando entre categorias diferentes
+    const porCategoria = {};
+    unicos.forEach(c => { (porCategoria[c.cat] = porCategoria[c.cat] || []).push(c); });
+    const categorias = Object.keys(porCategoria);
+    const final = [];
+    let i = 0;
+    while (final.length < 8 && categorias.some(cat => porCategoria[cat].length > 0)){
+      const cat = categorias[i % categorias.length];
+      if (porCategoria[cat].length > 0) final.push(porCategoria[cat].shift());
+      i++;
+    }
+    return final;
   }
 
   return {MONTHS, SEASONS, CATEGORIAS_ARQUIVO, MARCOS, fetchJSON, loadAllData, calcular, topN, mergeCounters, totals, curiosidadesDaRodada};

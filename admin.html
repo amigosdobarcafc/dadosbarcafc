@@ -652,6 +652,7 @@ async function renderAndShow(html){
   root.innerHTML = html;
   const node = root.firstElementChild;
   document.body.appendChild(root); // garante que está no DOM
+  if (document.fonts && document.fonts.ready) { await document.fonts.ready; }
   const canvas = await html2canvas(node, {backgroundColor:'#0A0A0B', scale:1});
   const dataUrl = canvas.toDataURL('image/png');
   const wrap = document.getElementById('imgPreviewWrap');

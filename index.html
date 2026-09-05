@@ -99,13 +99,13 @@
   td.avg{color:var(--green); font-weight:700; text-align:center; font-family:'Oswald',sans-serif;}
   small{color:var(--text-faint); font-weight:400;}
 
-  .curio-strip{display:flex; flex-direction:column; gap:14px; margin-bottom:26px;}
+  .curio-strip{display:flex; flex-direction:column; gap:8px; margin-bottom:22px;}
   .curio-card{
-    display:flex; align-items:center; gap:18px; background:var(--bg-card-2); border:1px solid var(--border); border-radius:14px;
-    padding:18px 22px; position:relative; overflow:hidden;
+    display:flex; align-items:center; gap:14px; background:var(--bg-card-2); border:1px solid var(--border); border-radius:10px;
+    padding:10px 16px; position:relative; overflow:hidden;
   }
-  .curio-card .ic{font-size:1.8rem; flex:0 0 auto;}
-  .curio-card p{font-size:.9rem; color:var(--text); margin:0; line-height:1.4;}
+  .curio-card .ic{font-size:1.25rem; flex:0 0 auto;}
+  .curio-card p{font-size:.82rem; color:var(--text); margin:0; line-height:1.35;}
   .curio-card::before{content:''; position:absolute; top:0; bottom:0; left:0; width:3px; background:var(--accent);}
 
   .section-title{display:flex; align-items:center; gap:10px; margin:0 0 16px; font-size:1rem; color:var(--text);}
@@ -149,6 +149,7 @@
   <a class="insta-btn" href="https://www.instagram.com/amigosbarcafc/" target="_blank">📸 Siga @amigosbarcafc</a>
   <span class="credit">Dados atualizados automaticamente após cada rodada</span>
   <span class="credit">Website desenvolvido por Alexandre Gabbia</span>
+  <a href="admin.html" class="credit" style="text-decoration:underline; display:inline-block; margin-top:4px;">Painel de administração</a>
 </footer>
 
 <script src="abfc-stats.js"></script>
@@ -230,6 +231,7 @@ function render(){
         [...nav.children].forEach(c=>c.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById('monthBody').innerHTML = renderSecao(ABFC.calcular(DATA.allRounds.filter(r=>r.year===DATA.currentYear && r.month===m)));
+        observeReveal();
       };
       nav.appendChild(btn);
       if (m === curMonth && hasData) defaultBtn = btn;
@@ -250,6 +252,7 @@ function render(){
         btn.classList.add('active');
         const rounds = DATA.allRounds.filter(r=>r.year===DATA.currentYear && s.months.includes(r.month));
         document.getElementById('seasonBody').innerHTML = renderCuriosidades(rounds) + renderSecao(ABFC.calcular(rounds));
+        observeReveal();
       };
       nav.appendChild(btn);
     });
