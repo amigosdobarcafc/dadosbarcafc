@@ -30,7 +30,8 @@ const ABFC = (function(){
     const manifest = await fetchJSON(basePath + 'data/manifest.json', {years:[]});
     const legacy = await fetchJSON(basePath + 'data/legacy_totals.json', {});
     const players = await fetchJSON(basePath + 'data/players.json', []);
-    const years = manifest.years && manifest.years.length ? manifest.years : [new Date().getFullYear()];
+    const rawYears = manifest.years && manifest.years.length ? manifest.years : [new Date().getFullYear()];
+    const years = Array.from(new Set(rawYears.map(y => parseInt(y, 10)))); // normaliza e remove duplicatas
     const perYear = await Promise.all(years.map(y => fetchJSON(basePath + 'data/rounds_' + y + '.json', [])));
     let allRounds = [];
     years.forEach((y, i)=>{
