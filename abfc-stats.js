@@ -17,7 +17,7 @@ const ABFC = (function(){
 
   async function fetchJSON(path, fallback){
     try{
-      const r = await fetch(path + (path.includes('?') ? '&' : '?') + 'v=' + Date.now());
+      const r = await fetch(path + (path.includes('?') ? '&' : '?') + 'v=' + Date.now(), {cache:'no-store'});
       if (!r.ok) return fallback;
       return await r.json();
     }catch(e){ return fallback; }
