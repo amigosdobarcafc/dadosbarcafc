@@ -183,6 +183,7 @@
     </div>
     <div class="who">
       <span id="whoUser"></span>
+      <a class="btn btn-ghost" href="index.html" style="text-decoration:none;">← Voltar ao site</a>
       <button class="btn btn-ghost" onclick="logout()">Sair</button>
     </div>
   </header>
@@ -511,7 +512,7 @@ function editRound(dateIso, year){
   });
   onPresencaChange();
   Object.entries(r.estatisticas || {}).forEach(([nome, st])=>{
-    const row = [...document.querySelectorAll('.stat-row')].find(x=>x.dataset.nome===nome);
+    const row = [...document.querySelectorAll('#statList .stat-row')].find(x=>x.dataset.nome===nome);
     if (row){ row.querySelector('.gInput').value = st.gols||0; row.querySelector('.aInput').value = st.assists||0; }
   });
   Object.entries(r.destaques || {}).forEach(([cat, arr])=>{
@@ -529,6 +530,7 @@ async function deleteRound(){
   roundsCache[year] = roundsCache[year].filter(r => r.data !== editingRoundDate);
   try{
     await api('/data/rounds_' + year + '.json', 'POST', roundsCache[year]);
+    IMG_DATA = null;
     toast('Rodada excluída');
     renderRoundsList(year);
     clearRoundForm();
@@ -542,7 +544,7 @@ async function saveRound(){
   if (presentes.length === 0) { toast('Marque ao menos um jogador presente', true); return; }
 
   const estatisticas = {};
-  document.querySelectorAll('.stat-row').forEach(row=>{
+  document.querySelectorAll('#statList .stat-row').forEach(row=>{
     estatisticas[row.dataset.nome] = {
       gols: parseInt(row.querySelector('.gInput').value || 0, 10),
       assists: parseInt(row.querySelector('.aInput').value || 0, 10),
@@ -564,6 +566,7 @@ async function saveRound(){
   try{
     await api('/data/rounds_' + year + '.json', 'POST', roundsCache[year]);
     await ensureManifestHasYear(year);
+    IMG_DATA = null;
     toast('Rodada salva com sucesso');
     renderRoundsList(year);
     clearRoundForm();
@@ -574,11 +577,11 @@ async function ensureManifestHasYear(year){
   try{
     const res = await api('/data/manifest.json');
     const manifest = res.content || {years: []};
-    if (!manifest.years.includes(year)){
-      manifest.years.push(year);
-      manifest.years.sort();
-      await api('/data/manifest.json', 'POST', manifest);
-    }
+    const yearNum = parseInt(year, 10);
+    let years = Array.from(new Set((manifest.years || []).map(y => parseInt(y, 10))));
+    if (!years.includes(yearNum)) years.push(yearNum);
+    years.sort((a,b)=>a-b);
+    await api('/data/manifest.json', 'POST', {years});
   }catch(e){ console.warn('Não foi possível atualizar o manifest.json', e); }
 }
 
@@ -703,6 +706,7 @@ async function renderAndShow(html){
 function rankClass(i){ return i===0?'r1':i===1?'r2':i===2?'r3':''; }
 
 async function populateImgRoundSelect(){
+  IMG_DATA = null; // sempre busca os dados mais recentes ao abrir a aba
   const data = await getImgData();
   const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear).slice().sort((a,b)=> b.data.localeCompare(a.data));
   const sel = document.getElementById('imgRoundSelect');
