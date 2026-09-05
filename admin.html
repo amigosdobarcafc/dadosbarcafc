@@ -139,6 +139,19 @@
   .ig-thead{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; padding:16px 28px; font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:1px; color:#6A6A70; text-transform:uppercase; border-bottom:1px solid #232326;}
   .ig-trow{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; align-items:center; padding:15px 28px; font-size:24px; border-bottom:1px solid #1B1B1D;}
   .ig-thead.c5, .ig-trow.c5{grid-template-columns:60px 1fr 110px 110px 130px;}
+  .ig-thead.c3, .ig-trow.c3{grid-template-columns:50px 1fr 90px;}
+  .ig-thead.c4, .ig-trow.c4{grid-template-columns:50px 1fr 80px 90px;}
+  .ig-cols2{display:flex; gap:22px; position:relative; z-index:1;}
+  .ig-colbox{flex:1; background:#131315; border:1px solid #232326; border-radius:20px; padding:6px 0; overflow:hidden;}
+  .ig-colhead{display:flex; align-items:center; gap:10px; padding:18px 22px 12px; font-family:'Oswald',sans-serif; font-size:24px; color:#fff; border-bottom:1px solid #232326; margin-bottom:2px;}
+  .ig-podium{display:flex; gap:16px; margin-bottom:30px; position:relative; z-index:1;}
+  .ig-podium-card{flex:1; background:#131315; border:1px solid #232326; border-radius:18px; padding:22px 12px; text-align:center;}
+  .ig-podium-card.first{background:linear-gradient(150deg,#FFD37A,#C98A1F); border-color:transparent; color:#1A0D00;}
+  .ig-podium-card.second{background:linear-gradient(150deg,#E4E4E8,#9A9AA2); border-color:transparent; color:#1A0D00;}
+  .ig-podium-card.third{background:linear-gradient(150deg,#E3A16C,#9C5A2C); border-color:transparent; color:#1A0D00;}
+  .ig-podium-card .rk{font-family:'Oswald',sans-serif; font-weight:700; font-size:15px; letter-spacing:2px; opacity:.65;}
+  .ig-podium-card h4{font-family:'Oswald',sans-serif; font-size:24px; margin:8px 0 2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .ig-podium-card .pg{font-size:15px; font-weight:600; opacity:.8;}
   .ig-trow:last-child{border-bottom:none;}
   .ig-trow:nth-child(even){background:rgba(255,255,255,.015);}
   .ig-rank{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:20px; background:#232326; color:#8C8C92;}
@@ -730,18 +743,24 @@ async function renderImgRodada(){
   if (!round) { toast('Nenhuma rodada encontrada', true); return; }
   const d = ABFC.calcular([round]);
   const lider = ABFC.topN(d.ga, 1)[0];
-  const rows = ABFC.topN(d.ga, 10);
+  const gols = ABFC.topN(d.g, 10);
+  const assists = ABFC.topN(d.a, 10);
+
+  function coluna(titulo, icon, rows){
+    return `<div class="ig-colbox">
+      <div class="ig-colhead">${icon} ${titulo}</div>
+      <div class="ig-thead c3"><span>#</span><span>Atleta</span><span style="text-align:center;">Qtd</span></div>
+      ${rows.map(([n,v],i)=>`<div class="ig-trow c3 ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num hi">${v}</span></div>`).join('') || '<div class="ig-trow" style="grid-template-columns:1fr;"><span>Sem dados</span></div>'}
+    </div>`;
+  }
 
   const html = `<div class="ig-card"><div class="ig-glow"></div>
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>ESTATÍSTICAS DA RODADA</h1></div></div>
     <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(round.data)} · TEMPORADA ${data.currentYear}</div>
     ${lider ? `<div class="ig-mvp"><div class="glowring"></div><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
-    <div class="ig-table">
-      <div class="ig-thead c5"><span>#</span><span>Atleta</span><span style="text-align:center;">G</span><span style="text-align:center;">A</span><span style="text-align:center;">PG</span></div>
-      ${rows.map(([n,v],i)=>{
-        const st = round.estatisticas[n] || {gols:0, assists:0};
-        return `<div class="ig-trow c5 ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num">${st.gols||0}</span><span class="ig-num">${st.assists||0}</span><span class="ig-num hi">${v}</span></div>`;
-      }).join('') || '<div class="ig-trow" style="grid-template-columns:1fr;"><span>Sem participações em gols nesta rodada</span></div>'}
+    <div class="ig-cols2">
+      ${coluna('Artilharia', '⚽', gols)}
+      ${coluna('Assistências', '👟', assists)}
     </div>
     <div class="ig-foot"><span class="l">amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
   </div>`;
@@ -755,18 +774,32 @@ async function renderImgTemporada(){
   const rounds = seasonUpToRound(data, round);
   const seasonInfo = ABFC.SEASONS.find(s => s.months.includes(round.month)) || ABFC.SEASONS[0];
   const d = ABFC.calcular(rounds);
-  const rows = ABFC.topN(d.ga, 10);
+  const top3 = ABFC.topN(d.ga, 3);
+  const gols = ABFC.topN(d.g, 10);
+  const assists = ABFC.topN(d.a, 10);
+  const podiumClass = ['first','second','third'];
+
+  function coluna(titulo, icon, rows, mediaLabel){
+    return `<div class="ig-colbox">
+      <div class="ig-colhead">${icon} ${titulo}</div>
+      <div class="ig-thead c4"><span>#</span><span>Atleta</span><span style="text-align:center;">Tot</span><span style="text-align:center;">${mediaLabel}</span></div>
+      ${rows.map(([n,v],i)=>{
+        const j = d.j[n]||0;
+        const media = j ? (v/j).toFixed(1) : '0.0';
+        return `<div class="ig-trow c4 ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num hi">${v}</span><span class="ig-num avg">${media}</span></div>`;
+      }).join('')}
+    </div>`;
+  }
 
   const html = `<div class="ig-card"><div class="ig-glow"></div>
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>BARÇASCORE</h1></div></div>
     <div class="ig-chip"><span class="dot"></span>${seasonInfo.label.toUpperCase()} ${data.currentYear} · APÓS A RODADA DE ${fmtDateBR(round.data)}</div>
-    <div class="ig-table">
-      <div class="ig-thead"><span>#</span><span>Atleta</span><span style="text-align:center;">J</span><span style="text-align:center;">G</span><span style="text-align:center;">GPJ</span><span style="text-align:center;">A</span><span style="text-align:center;">APJ</span><span style="text-align:center;">PG</span></div>
-      ${rows.map(([n,v],i)=>{
-        const j = d.j[n]||0, g = d.g[n]||0, a = d.a[n]||0;
-        const gpj = j? (g/j).toFixed(1) : '0.0', apj = j? (a/j).toFixed(1) : '0.0';
-        return `<div class="ig-trow ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num">${j}</span><span class="ig-num">${g}</span><span class="ig-num avg">${gpj}</span><span class="ig-num">${a}</span><span class="ig-num avg">${apj}</span><span class="ig-num hi">${v}</span></div>`;
-      }).join('')}
+    <div class="ig-podium">
+      ${top3.map(([n,v],i)=>`<div class="ig-podium-card ${podiumClass[i]}"><div class="rk">TOP ${i+1} GERAL</div><h4>${n}</h4><div class="pg">${v} PG</div></div>`).join('')}
+    </div>
+    <div class="ig-cols2">
+      ${coluna('Artilharia', '⚽', gols, 'GPJ')}
+      ${coluna('Assistências', '👟', assists, 'APJ')}
     </div>
     <div class="ig-foot"><span class="l">amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
   </div>`;
