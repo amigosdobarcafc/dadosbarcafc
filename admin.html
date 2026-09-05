@@ -108,39 +108,55 @@
 
   /* ---- template das imagens (1080x1350, 4:5 Instagram) ---- */
   .ig-card{
-    width:1080px; height:1350px; background:#0A0A0B; color:#F4F4F2; font-family:'Inter',sans-serif;
-    padding:70px 64px; position:relative; overflow:hidden; display:flex; flex-direction:column;
+    width:1080px; height:1350px; background:radial-gradient(900px 500px at 50% -120px, rgba(255,106,0,.22), transparent 60%), #08080A;
+    color:#F4F4F2; font-family:'Inter',sans-serif;
+    padding:64px 60px; position:relative; overflow:hidden; display:flex; flex-direction:column;
   }
   .ig-card::before{
     content:''; position:absolute; inset:0; opacity:.05; pointer-events:none;
     background-image: repeating-linear-gradient(90deg, transparent, transparent 78px, #FF6A00 78px, #FF6A00 80px);
   }
-  .ig-head{display:flex; align-items:center; gap:22px; margin-bottom:14px;}
-  .ig-head img{width:88px; height:88px; object-fit:contain;}
-  .ig-head .kicker{color:#FF6A00; font-family:'Oswald',sans-serif; font-weight:600; font-size:22px; letter-spacing:2px;}
-  .ig-head h1{font-family:'Oswald',sans-serif; font-size:52px; margin:2px 0 0; color:#fff; line-height:1;}
-  .ig-sub{color:#93939A; font-size:24px; margin:18px 0 40px; font-weight:500;}
-  .ig-mvp{
-    background:linear-gradient(145deg,#FF6A00,#B84400); border-radius:22px; padding:32px 40px; text-align:center; margin-bottom:44px;
+  .ig-glow{position:absolute; width:500px; height:500px; border-radius:50%; background:#FF6A00; opacity:.10; filter:blur(90px); top:-160px; right:-160px;}
+  .ig-head{display:flex; align-items:center; gap:22px; margin-bottom:6px; position:relative; z-index:1;}
+  .ig-head img{width:80px; height:80px; object-fit:contain; filter:drop-shadow(0 6px 18px rgba(255,106,0,.4));}
+  .ig-head .kicker{color:#FF6A00; font-family:'Oswald',sans-serif; font-weight:600; font-size:20px; letter-spacing:3px;}
+  .ig-head h1{font-family:'Oswald',sans-serif; font-size:50px; margin:2px 0 0; color:#fff; line-height:1; letter-spacing:.5px;}
+  .ig-chip{
+    display:inline-flex; align-items:center; gap:8px; background:rgba(255,106,0,.12); border:1px solid rgba(255,106,0,.35);
+    color:#FFB067; font-family:'Oswald',sans-serif; font-weight:600; font-size:20px; padding:8px 20px; border-radius:30px; margin:22px 0 34px;
   }
-  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:22px; letter-spacing:2px; color:#180D00; opacity:.75;}
-  .ig-mvp h2{font-family:'Oswald',sans-serif; font-size:56px; margin:6px 0 0; color:#180D00;}
-  .ig-mvp .n{font-size:24px; color:#180D00; opacity:.85; font-weight:600;}
-  .ig-cols{display:flex; gap:36px; flex:1;}
-  .ig-col{flex:1; background:#161618; border:1px solid #242427; border-radius:20px; padding:30px 26px; border-left:5px solid #FF6A00;}
-  .ig-col h3{font-family:'Oswald',sans-serif; font-size:30px; margin:0 0 22px; display:flex; align-items:center; gap:10px;}
-  .ig-row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-top:1px solid #202023; font-size:26px;}
-  .ig-row:first-of-type{border-top:none;}
-  .ig-row .num{color:#5A5A60; font-family:'Oswald',sans-serif; width:34px;}
-  .ig-row .name{flex:1;}
-  .ig-row .v{color:#FFB067; font-weight:700; font-family:'Oswald',sans-serif; font-size:30px;}
-  .ig-foot{display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:26px; border-top:1px solid #242427;}
-  .ig-foot .l{color:#5A5A60; font-size:20px;}
+  .ig-chip .dot{width:8px; height:8px; border-radius:50%; background:#31D07A;}
+  .ig-mvp{
+    background:linear-gradient(150deg,#FF7A1A 0%,#B84400 100%); border-radius:26px; padding:34px 42px; text-align:center; margin-bottom:38px;
+    position:relative; overflow:hidden; box-shadow:0 30px 60px -20px rgba(255,106,0,.5);
+  }
+  .ig-mvp::after{content:'🏆'; position:absolute; font-size:130px; opacity:.14; right:-10px; bottom:-30px; transform:rotate(-10deg);}
+  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; letter-spacing:3px; color:#1A0D00; opacity:.7;}
+  .ig-mvp h2{font-family:'Oswald',sans-serif; font-size:54px; margin:8px 0 2px; color:#1A0D00; position:relative; z-index:1;}
+  .ig-mvp .n{font-size:23px; color:#1A0D00; opacity:.82; font-weight:600; position:relative; z-index:1;}
+
+  .ig-table{background:#131315; border:1px solid #232326; border-radius:22px; padding:8px 0; flex:1; position:relative; z-index:1;}
+  .ig-thead{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; padding:16px 28px; font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:1px; color:#6A6A70; text-transform:uppercase; border-bottom:1px solid #232326;}
+  .ig-trow{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; align-items:center; padding:15px 28px; font-size:24px; border-bottom:1px solid #1B1B1D;}
+  .ig-trow:last-child{border-bottom:none;}
+  .ig-trow:nth-child(even){background:rgba(255,255,255,.015);}
+  .ig-rank{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:20px; background:#232326; color:#8C8C92;}
+  .ig-trow:nth-child(1) .ig-rank, .ig-thead + .ig-trow:first-of-type .ig-rank{}
+  .r1 .ig-rank{background:linear-gradient(145deg,#FFD37A,#C98A1F); color:#1A0D00;}
+  .r2 .ig-rank{background:linear-gradient(145deg,#E4E4E8,#9A9AA2); color:#1A0D00;}
+  .r3 .ig-rank{background:linear-gradient(145deg,#E3A16C,#9C5A2C); color:#1A0D00;}
+  .ig-pname{font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding-right:10px;}
+  .ig-num{text-align:center; font-family:'Oswald',sans-serif; color:#C7C7CC;}
+  .ig-num.hi{color:#FFB067; font-weight:700; font-size:27px;}
+  .ig-num.avg{color:#31D07A; font-weight:600; font-size:19px;}
+  .ig-foot{display:flex; justify-content:space-between; align-items:center; margin-top:30px; padding-top:22px; border-top:1px solid #232326; position:relative; z-index:1;}
+  .ig-foot .l{color:#5A5A60; font-size:19px;}
   .ig-foot .insta{color:#FF6A00; font-weight:700; font-size:22px; font-family:'Oswald',sans-serif;}
-  .ig-curio-list{display:flex; flex-direction:column; gap:22px; margin-top:10px;}
-  .ig-curio{background:#161618; border:1px solid #242427; border-left:6px solid #FF6A00; border-radius:18px; padding:26px 30px; display:flex; gap:22px; align-items:center;}
-  .ig-curio .ic{font-size:44px;}
-  .ig-curio p{font-size:26px; margin:0; line-height:1.35;}
+  .ig-curio-list{display:flex; flex-direction:column; gap:16px; margin-top:6px; position:relative; z-index:1;}
+  .ig-curio{background:#131315; border:1px solid #232326; border-radius:18px; padding:22px 26px; display:flex; gap:22px; align-items:center;}
+  .ig-curio .icwrap{width:64px; height:64px; border-radius:16px; background:rgba(255,106,0,.14); display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  .ig-curio .icwrap span{font-size:32px;}
+  .ig-curio p{font-size:24px; margin:0; line-height:1.35;}
 </style>
 </head>
 <body>
@@ -213,7 +229,10 @@
           </div>
 
           <div class="card">
-            <button class="btn btn-block" id="btnSaveRound" onclick="saveRound()">Salvar rodada</button>
+            <div class="row">
+              <button class="btn" id="btnSaveRound" onclick="saveRound()" style="flex:1;">Salvar rodada</button>
+              <button class="btn btn-danger" id="btnDeleteRound" onclick="deleteRound()" style="display:none;">Excluir rodada</button>
+            </div>
           </div>
 
           <div class="card">
@@ -448,6 +467,7 @@ function clearRoundForm(){
   document.querySelectorAll('#pickPresenca input').forEach(c=> c.checked = false);
   onPresencaChange();
   document.getElementById('btnSaveRound').textContent = 'Salvar rodada';
+  document.getElementById('btnDeleteRound').style.display = 'none';
 }
 
 function yearOf(isoDate){ return isoDate.slice(0,4); }
@@ -496,6 +516,20 @@ function editRound(dateIso, year){
     if (sel && arr && arr.length) sel.value = arr[0];
   });
   document.getElementById('btnSaveRound').textContent = 'Atualizar rodada';
+  document.getElementById('btnDeleteRound').style.display = 'inline-flex';
+}
+
+async function deleteRound(){
+  if (!editingRoundDate) return;
+  if (!confirm('Tem certeza que quer excluir essa rodada? Essa ação não pode ser desfeita.')) return;
+  const year = yearOf(editingRoundDate);
+  roundsCache[year] = roundsCache[year].filter(r => r.data !== editingRoundDate);
+  try{
+    await api('/data/rounds_' + year + '.json', 'POST', roundsCache[year]);
+    toast('Rodada excluída');
+    renderRoundsList(year);
+    clearRoundForm();
+  }catch(e){ toast('Erro ao excluir: ' + e.message, true); }
 }
 
 async function saveRound(){
@@ -663,6 +697,17 @@ async function renderAndShow(html){
   `;
 }
 
+function rankClass(i){ return i===0?'r1':i===1?'r2':i===2?'r3':''; }
+
+function currentSeasonRounds(data){
+  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
+  const last = seasonRounds[seasonRounds.length-1];
+  if (!last) return {rounds:[], seasonInfo:null, last:null};
+  const seasonInfo = ABFC.SEASONS.find(s => s.months.includes(last.month)) || ABFC.SEASONS[0];
+  const rounds = seasonRounds.filter(r => seasonInfo.months.includes(r.month));
+  return {rounds, seasonInfo, last};
+}
+
 async function renderImgRodada(){
   const data = await getImgData();
   const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
@@ -670,44 +715,43 @@ async function renderImgRodada(){
   if (!last) { toast('Nenhuma rodada encontrada', true); return; }
   const d = ABFC.calcular([last]);
   const lider = ABFC.topN(d.ga, 1)[0];
-  const gols = ABFC.topN(d.g, 10);
-  const assists = ABFC.topN(d.a, 10);
+  const rows = ABFC.topN(d.ga, 10);
 
-  const html = `<div class="ig-card">
-    <div class="ig-head">
-      <img src="logobarca.png">
-      <div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>ESTATÍSTICAS DA RODADA</h1></div>
-    </div>
-    <div class="ig-sub">Rodada de ${fmtDateBR(last.data)} · Temporada ${data.currentYear}</div>
+  const html = `<div class="ig-card"><div class="ig-glow"></div>
+    <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>ESTATÍSTICAS DA RODADA</h1></div></div>
+    <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(last.data)} · TEMPORADA ${data.currentYear}</div>
     ${lider ? `<div class="ig-mvp"><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
-    <div class="ig-cols">
-      <div class="ig-col"><h3>⚽ Artilharia</h3>${gols.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('') || '<div class="ig-row">Sem gols</div>'}</div>
-      <div class="ig-col"><h3>👟 Assistências</h3>${assists.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('') || '<div class="ig-row">Sem assistências</div>'}</div>
+    <div class="ig-table">
+      <div class="ig-thead"><span>#</span><span>Atleta</span><span style="text-align:center;">G</span><span style="text-align:center;">A</span><span style="text-align:center;">PG</span><span></span><span></span><span></span></div>
+      ${rows.map(([n,v],i)=>{
+        const st = last.estatisticas[n] || {gols:0, assists:0};
+        return `<div class="ig-trow ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num">${st.gols||0}</span><span class="ig-num">${st.assists||0}</span><span class="ig-num hi">${v}</span><span></span><span></span><span></span></div>`;
+      }).join('') || '<div class="ig-trow"><span></span><span>Sem participações em gols nesta rodada</span></div>'}
     </div>
-    <div class="ig-foot"><span class="l">Acompanhe todos os dados em amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
+    <div class="ig-foot"><span class="l">amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
   </div>`;
   await renderAndShow(html);
 }
 
 async function renderImgTemporada(){
   const data = await getImgData();
-  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
-  const last = seasonRounds[seasonRounds.length-1];
-  const d = ABFC.calcular(seasonRounds);
-  const gols = ABFC.topN(d.g, 10);
-  const assists = ABFC.topN(d.a, 10);
+  const {rounds, seasonInfo, last} = currentSeasonRounds(data);
+  if (!rounds.length) { toast('Sem dados na temporada atual', true); return; }
+  const d = ABFC.calcular(rounds);
+  const rows = ABFC.topN(d.ga, 10);
 
-  const html = `<div class="ig-card">
-    <div class="ig-head">
-      <img src="logobarca.png">
-      <div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>BARÇASCORE</h1></div>
+  const html = `<div class="ig-card"><div class="ig-glow"></div>
+    <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>BARÇASCORE</h1></div></div>
+    <div class="ig-chip"><span class="dot"></span>${seasonInfo.label.toUpperCase()} ${data.currentYear} · APÓS A RODADA DE ${fmtDateBR(last.data)}</div>
+    <div class="ig-table" style="margin-top:6px;">
+      <div class="ig-thead"><span>#</span><span>Atleta</span><span style="text-align:center;">J</span><span style="text-align:center;">G</span><span style="text-align:center;">GPJ</span><span style="text-align:center;">A</span><span style="text-align:center;">APJ</span><span style="text-align:center;">PG</span></div>
+      ${rows.map(([n,v],i)=>{
+        const j = d.j[n]||0, g = d.g[n]||0, a = d.a[n]||0;
+        const gpj = j? (g/j).toFixed(1) : '0.0', apj = j? (a/j).toFixed(1) : '0.0';
+        return `<div class="ig-trow ${rankClass(i)}"><span class="ig-rank">${i+1}</span><span class="ig-pname">${n}</span><span class="ig-num">${j}</span><span class="ig-num">${g}</span><span class="ig-num avg">${gpj}</span><span class="ig-num">${a}</span><span class="ig-num avg">${apj}</span><span class="ig-num hi">${v}</span></div>`;
+      }).join('')}
     </div>
-    <div class="ig-sub">Temporada ${data.currentYear} · ${last ? 'após a rodada de ' + fmtDateBR(last.data) : ''}</div>
-    <div class="ig-cols">
-      <div class="ig-col"><h3>⚽ Artilharia</h3>${gols.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('')}</div>
-      <div class="ig-col"><h3>👟 Assistências</h3>${assists.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('')}</div>
-    </div>
-    <div class="ig-foot"><span class="l">Acompanhe todos os dados em amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
+    <div class="ig-foot"><span class="l">amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
   </div>`;
   await renderAndShow(html);
 }
@@ -720,16 +764,13 @@ async function renderImgCuriosidades(){
   const curios = ABFC.curiosidadesDaRodada(data.allRounds, data.legacy, last).slice(0, 6);
   if (!curios.length) { toast('Sem curiosidades pra essa rodada', true); return; }
 
-  const html = `<div class="ig-card">
-    <div class="ig-head">
-      <img src="logobarca.png">
-      <div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>CURIOSIDADES</h1></div>
-    </div>
-    <div class="ig-sub">Rodada de ${fmtDateBR(last.data)} · Temporada ${data.currentYear}</div>
+  const html = `<div class="ig-card"><div class="ig-glow"></div>
+    <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>CURIOSIDADES</h1></div></div>
+    <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(last.data)} · TEMPORADA ${data.currentYear}</div>
     <div class="ig-curio-list">
-      ${curios.map(c=>`<div class="ig-curio"><div class="ic">${c.icon}</div><p>${c.text}</p></div>`).join('')}
+      ${curios.map(c=>`<div class="ig-curio"><div class="icwrap"><span>${c.icon}</span></div><p>${c.text}</p></div>`).join('')}
     </div>
-    <div class="ig-foot"><span class="l">Acompanhe todos os dados em amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
+    <div class="ig-foot"><span class="l">amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
   </div>`;
   await renderAndShow(html);
 }
