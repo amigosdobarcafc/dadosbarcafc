@@ -105,6 +105,42 @@
   .destaques-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
   @media (max-width:720px){.destaques-grid{grid-template-columns:1fr;}}
   .empty-hint{color:var(--text-dim); font-size:.85rem; padding:20px; text-align:center;}
+
+  /* ---- template das imagens (1080x1350, 4:5 Instagram) ---- */
+  .ig-card{
+    width:1080px; height:1350px; background:#0A0A0B; color:#F4F4F2; font-family:'Inter',sans-serif;
+    padding:70px 64px; position:relative; overflow:hidden; display:flex; flex-direction:column;
+  }
+  .ig-card::before{
+    content:''; position:absolute; inset:0; opacity:.05; pointer-events:none;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 78px, #FF6A00 78px, #FF6A00 80px);
+  }
+  .ig-head{display:flex; align-items:center; gap:22px; margin-bottom:14px;}
+  .ig-head img{width:88px; height:88px; object-fit:contain;}
+  .ig-head .kicker{color:#FF6A00; font-family:'Oswald',sans-serif; font-weight:600; font-size:22px; letter-spacing:2px;}
+  .ig-head h1{font-family:'Oswald',sans-serif; font-size:52px; margin:2px 0 0; color:#fff; line-height:1;}
+  .ig-sub{color:#93939A; font-size:24px; margin:18px 0 40px; font-weight:500;}
+  .ig-mvp{
+    background:linear-gradient(145deg,#FF6A00,#B84400); border-radius:22px; padding:32px 40px; text-align:center; margin-bottom:44px;
+  }
+  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:22px; letter-spacing:2px; color:#180D00; opacity:.75;}
+  .ig-mvp h2{font-family:'Oswald',sans-serif; font-size:56px; margin:6px 0 0; color:#180D00;}
+  .ig-mvp .n{font-size:24px; color:#180D00; opacity:.85; font-weight:600;}
+  .ig-cols{display:flex; gap:36px; flex:1;}
+  .ig-col{flex:1; background:#161618; border:1px solid #242427; border-radius:20px; padding:30px 26px; border-left:5px solid #FF6A00;}
+  .ig-col h3{font-family:'Oswald',sans-serif; font-size:30px; margin:0 0 22px; display:flex; align-items:center; gap:10px;}
+  .ig-row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-top:1px solid #202023; font-size:26px;}
+  .ig-row:first-of-type{border-top:none;}
+  .ig-row .num{color:#5A5A60; font-family:'Oswald',sans-serif; width:34px;}
+  .ig-row .name{flex:1;}
+  .ig-row .v{color:#FFB067; font-weight:700; font-family:'Oswald',sans-serif; font-size:30px;}
+  .ig-foot{display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:26px; border-top:1px solid #242427;}
+  .ig-foot .l{color:#5A5A60; font-size:20px;}
+  .ig-foot .insta{color:#FF6A00; font-weight:700; font-size:22px; font-family:'Oswald',sans-serif;}
+  .ig-curio-list{display:flex; flex-direction:column; gap:22px; margin-top:10px;}
+  .ig-curio{background:#161618; border:1px solid #242427; border-left:6px solid #FF6A00; border-radius:18px; padding:26px 30px; display:flex; gap:22px; align-items:center;}
+  .ig-curio .ic{font-size:44px;}
+  .ig-curio p{font-size:26px; margin:0; line-height:1.35;}
 </style>
 </head>
 <body>
@@ -139,6 +175,7 @@
     <button class="active" data-tab="registrar" onclick="showTab('registrar')">Registrar Rodada</button>
     <button data-tab="jogadores" onclick="showTab('jogadores')">Jogadores</button>
     <button data-tab="legado" onclick="showTab('legado')">Legado (anos anteriores)</button>
+    <button data-tab="imagens" onclick="showTab('imagens')">Imagens p/ Instagram</button>
   </nav>
 
   <main>
@@ -231,11 +268,32 @@
         </div>
       </div>
     </section>
+    <!-- IMAGENS -->
+    <section id="tab-imagens" style="display:none;">
+      <div class="card">
+        <h2>Gerar imagem para o Instagram</h2>
+        <div class="row" style="margin-bottom:6px;">
+          <button class="btn" onclick="renderImgRodada()">📋 Estatísticas da rodada</button>
+          <button class="btn btn-ghost" onclick="renderImgTemporada()">🏆 BarçaScore (ranking da temporada)</button>
+          <button class="btn btn-ghost" onclick="renderImgCuriosidades()">✨ Curiosidades da rodada</button>
+        </div>
+      </div>
+      <div class="card" style="display:flex; justify-content:center;">
+        <div id="imgPreviewWrap" style="text-align:center;">
+          <div class="empty-hint">Escolha um tipo de imagem acima</div>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
 
 <div class="toast" id="toast"></div>
 
+<!-- templates ocultos usados pra gerar as imagens (1080x1350 - formato 4:5 Instagram) -->
+<div id="imgRoot" style="position:fixed; left:-99999px; top:0;"></div>
+
+<script src="abfc-stats.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 const WORKER_URL = "https://abfc-portal-api.alexgabbia.workers.dev";
 
@@ -318,7 +376,7 @@ async function boot(){
 }
 
 function showTab(tab){
-  ['registrar','jogadores','legado'].forEach(t=>{
+  ['registrar','jogadores','legado','imagens'].forEach(t=>{
     document.getElementById('tab-'+t).style.display = (t===tab) ? 'block' : 'none';
   });
   document.querySelectorAll('nav.tabs button').forEach(b=>{
@@ -578,6 +636,101 @@ async function saveLegacy(){
     await api('/data/legacy_totals.json', 'POST', legacy);
     toast('Legado de ' + year + ' salvo');
   }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
+}
+
+// ---------- IMAGENS PARA INSTAGRAM ----------
+let IMG_DATA = null;
+async function getImgData(){
+  if (!IMG_DATA) IMG_DATA = await ABFC.loadAllData('');
+  return IMG_DATA;
+}
+
+function fmtDateBR(iso){ const [y,m,d] = iso.split('-'); return `${d}/${m}/${y}`; }
+
+async function renderAndShow(html){
+  const root = document.getElementById('imgRoot');
+  root.innerHTML = html;
+  const node = root.firstElementChild;
+  document.body.appendChild(root); // garante que está no DOM
+  const canvas = await html2canvas(node, {backgroundColor:'#0A0A0B', scale:1});
+  const dataUrl = canvas.toDataURL('image/png');
+  const wrap = document.getElementById('imgPreviewWrap');
+  wrap.innerHTML = `
+    <img src="${dataUrl}" style="max-width:340px; border-radius:12px; border:1px solid var(--border); margin-bottom:16px;">
+    <br>
+    <a class="btn" download="abfc.png" href="${dataUrl}">Baixar imagem</a>
+  `;
+}
+
+async function renderImgRodada(){
+  const data = await getImgData();
+  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
+  const last = seasonRounds[seasonRounds.length-1];
+  if (!last) { toast('Nenhuma rodada encontrada', true); return; }
+  const d = ABFC.calcular([last]);
+  const lider = ABFC.topN(d.ga, 1)[0];
+  const gols = ABFC.topN(d.g, 10);
+  const assists = ABFC.topN(d.a, 10);
+
+  const html = `<div class="ig-card">
+    <div class="ig-head">
+      <img src="logobarca.png">
+      <div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>ESTATÍSTICAS DA RODADA</h1></div>
+    </div>
+    <div class="ig-sub">Rodada de ${fmtDateBR(last.data)} · Temporada ${data.currentYear}</div>
+    ${lider ? `<div class="ig-mvp"><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
+    <div class="ig-cols">
+      <div class="ig-col"><h3>⚽ Artilharia</h3>${gols.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('') || '<div class="ig-row">Sem gols</div>'}</div>
+      <div class="ig-col"><h3>👟 Assistências</h3>${assists.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('') || '<div class="ig-row">Sem assistências</div>'}</div>
+    </div>
+    <div class="ig-foot"><span class="l">Acompanhe todos os dados em amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
+  </div>`;
+  await renderAndShow(html);
+}
+
+async function renderImgTemporada(){
+  const data = await getImgData();
+  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
+  const last = seasonRounds[seasonRounds.length-1];
+  const d = ABFC.calcular(seasonRounds);
+  const gols = ABFC.topN(d.g, 10);
+  const assists = ABFC.topN(d.a, 10);
+
+  const html = `<div class="ig-card">
+    <div class="ig-head">
+      <img src="logobarca.png">
+      <div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>BARÇASCORE</h1></div>
+    </div>
+    <div class="ig-sub">Temporada ${data.currentYear} · ${last ? 'após a rodada de ' + fmtDateBR(last.data) : ''}</div>
+    <div class="ig-cols">
+      <div class="ig-col"><h3>⚽ Artilharia</h3>${gols.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('')}</div>
+      <div class="ig-col"><h3>👟 Assistências</h3>${assists.map(([n,v],i)=>`<div class="ig-row"><span class="num">${i+1}</span><span class="name">${n}</span><span class="v">${v}</span></div>`).join('')}</div>
+    </div>
+    <div class="ig-foot"><span class="l">Acompanhe todos os dados em amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
+  </div>`;
+  await renderAndShow(html);
+}
+
+async function renderImgCuriosidades(){
+  const data = await getImgData();
+  const seasonRounds = data.allRounds.filter(r=>r.year===data.currentYear);
+  const last = seasonRounds[seasonRounds.length-1];
+  if (!last) { toast('Nenhuma rodada encontrada', true); return; }
+  const curios = ABFC.curiosidadesDaRodada(data.allRounds, data.legacy, last).slice(0, 6);
+  if (!curios.length) { toast('Sem curiosidades pra essa rodada', true); return; }
+
+  const html = `<div class="ig-card">
+    <div class="ig-head">
+      <img src="logobarca.png">
+      <div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>CURIOSIDADES</h1></div>
+    </div>
+    <div class="ig-sub">Rodada de ${fmtDateBR(last.data)} · Temporada ${data.currentYear}</div>
+    <div class="ig-curio-list">
+      ${curios.map(c=>`<div class="ig-curio"><div class="ic">${c.icon}</div><p>${c.text}</p></div>`).join('')}
+    </div>
+    <div class="ig-foot"><span class="l">Acompanhe todos os dados em amigosdobarcafc.github.io/dadosbarcafc</span><span class="insta">@amigosbarcafc</span></div>
+  </div>`;
+  await renderAndShow(html);
 }
 
 // ---------- start ----------
