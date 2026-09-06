@@ -188,5 +188,17 @@ const ABFC = (function(){
     return final;
   }
 
-  return {MONTHS, SEASONS, CATEGORIAS_ARQUIVO, MARCOS, fetchJSON, loadAllData, calcular, topN, mergeCounters, totals, curiosidadesDaRodada};
+  async function loadPlayersAndRatings(basePath){
+    basePath = basePath || '';
+    const players = await fetchJSON(basePath + 'data/players.json', []);
+    const ratings = await fetchJSON(basePath + 'data/ratings.json', {});
+    return players.map(p => ({
+      nome: p.nome,
+      posicao: (ratings[p.nome] && ratings[p.nome].posicao) || p.posicao,
+      overall: ratings[p.nome] ? ratings[p.nome].overall : null,
+      skills: ratings[p.nome] ? ratings[p.nome].skills : null,
+    }));
+  }
+
+  return {MONTHS, SEASONS, CATEGORIAS_ARQUIVO, MARCOS, fetchJSON, loadAllData, loadPlayersAndRatings, calcular, topN, mergeCounters, totals, curiosidadesDaRodada};
 })();

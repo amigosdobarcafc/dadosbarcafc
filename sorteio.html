@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorteador · Amigos do Barça FC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0B; --bg-2:#0E0E10; --bg-card:#161618; --bg-card-2:#1C1C1F;
+    --border:#242427; --accent:#FF6A00; --accent-2:#FFB067;
+    --text:#F4F4F2; --text-dim:#93939A; --text-faint:#5A5A60; --green:#31D07A;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif;}
+  h1,h2,h3{font-family:'Oswald',sans-serif;}
+  a{color:var(--accent); text-decoration:none;}
+
+  .hero{padding:36px 20px 24px; text-align:center; background:linear-gradient(180deg,var(--bg-2),var(--bg)); border-bottom:1px solid var(--border);}
+  .hero img{width:58px; height:58px; object-fit:contain; margin-bottom:8px;}
+  .hero .kicker{color:var(--accent); font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:2px;}
+  .hero h1{margin:6px 0 0; font-size:1.6rem;}
+  .hero p{color:var(--text-dim); font-size:.85rem; margin:6px 0 0;}
+
+  main{max-width:820px; margin:0 auto; padding:24px 18px 60px;}
+  .card{background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:20px; margin-bottom:20px;}
+  .card h2{font-size:1rem; margin:0 0 14px;}
+
+  .toolbar{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;}
+  .toolbar button{background:var(--bg-card-2); border:1px solid var(--border); color:var(--text-dim); padding:8px 14px; border-radius:20px; font-size:.78rem; cursor:pointer; font-family:'Oswald',sans-serif;}
+
+  .players-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:8px; max-height:420px; overflow-y:auto; padding-right:4px;}
+  .p-chip{
+    display:flex; align-items:center; justify-content:space-between; gap:8px; background:var(--bg-card-2); border:1px solid var(--border);
+    border-radius:10px; padding:10px 12px; cursor:pointer; user-select:none; transition:.15s;
+  }
+  .p-chip.on{border-color:var(--accent); background:rgba(255,106,0,.1);}
+  .p-chip .nm{font-size:.85rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .p-chip .ov{font-family:'Oswald',sans-serif; font-weight:700; color:var(--accent-2); font-size:.85rem; flex:0 0 auto;}
+  .p-chip.na .ov{color:var(--text-faint);}
+
+  .count-bar{display:flex; justify-content:space-between; align-items:center; margin:14px 0; font-size:.85rem; color:var(--text-dim);}
+  .count-bar b{color:var(--text); font-family:'Oswald',sans-serif; font-size:1.1rem;}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--accent); color:#0B0B0C;
+    border:none; border-radius:10px; padding:14px 20px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:'Oswald',sans-serif;
+    letter-spacing:.3px; width:100%;
+  }
+  .btn:disabled{opacity:.4; cursor:default;}
+  .btn-ghost{background:transparent; border:1px solid var(--border); color:var(--text-dim); width:auto; padding:10px 18px;}
+
+  .teams-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:8px;}
+  .team-card{background:var(--bg-card-2); border:1px solid var(--border); border-radius:14px; padding:16px 18px; border-top:3px solid var(--accent);}
+  .team-card h3{font-size:.95rem; margin:0 0 4px; display:flex; justify-content:space-between; align-items:center;}
+  .team-card .avg{color:var(--accent-2); font-size:.8rem; font-family:'Oswald',sans-serif;}
+  .team-card ul{list-style:none; padding:0; margin:10px 0 0;}
+  .team-card li{display:flex; justify-content:space-between; padding:6px 0; border-top:1px solid #202023; font-size:.85rem;}
+  .team-card li:first-child{border-top:none;}
+  .team-card li .pos{color:var(--text-faint); font-size:.7rem; text-transform:uppercase;}
+  .team-card li .ov{color:var(--accent-2); font-family:'Oswald',sans-serif; font-weight:700;}
+
+  .reserves{margin-top:18px; padding:14px 18px; background:var(--bg-card-2); border:1px dashed var(--border); border-radius:12px;}
+  .reserves h3{font-size:.85rem; color:var(--text-dim); margin:0 0 8px;}
+  .reserves .list{display:flex; flex-wrap:wrap; gap:8px;}
+  .reserves .tag{background:var(--bg-card); border:1px solid var(--border); padding:5px 12px; border-radius:16px; font-size:.8rem;}
+
+  .empty-hint{color:var(--text-faint); font-size:.85rem; text-align:center; padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="logobarca.png" alt="ABFC">
+  <div class="kicker">AMIGOS DO BARÇA F.C.</div>
+  <h1>Sorteador de Times</h1>
+  <p>Marque quem vai jogar hoje e sorteie os times equilibrados</p>
+</div>
+
+<main>
+  <div class="card">
+    <h2>Quem vai jogar hoje?</h2>
+    <div class="toolbar">
+      <button onclick="selectAll(true)">Marcar todos</button>
+      <button onclick="selectAll(false)">Desmarcar todos</button>
+    </div>
+    <div class="players-grid" id="playersGrid"></div>
+    <div class="count-bar"><span>Selecionados</span><b id="countLabel">0</b></div>
+    <button class="btn" id="btnSortear" onclick="sortear()" disabled>Sortear times</button>
+  </div>
+
+  <div id="resultado"></div>
+</main>
+
+<script src="abfc-stats.js"></script>
+<script>
+let PLAYERS = [];
+let selected = new Set();
+
+async function boot(){
+  PLAYERS = await ABFC.loadPlayersAndRatings('');
+  PLAYERS.sort((a,b)=> a.nome.localeCompare(b.nome));
+  renderGrid();
+}
+
+function renderGrid(){
+  const grid = document.getElementById('playersGrid');
+  grid.innerHTML = '';
+  PLAYERS.forEach(p=>{
+    const chip = document.createElement('div');
+    chip.className = 'p-chip' + (p.overall==null ? ' na' : '');
+    chip.innerHTML = `<span class="nm">${p.nome}</span><span class="ov">${p.overall ?? '—'}</span>`;
+    chip.onclick = ()=>{
+      if (selected.has(p.nome)) selected.delete(p.nome); else selected.add(p.nome);
+      chip.classList.toggle('on');
+      updateCount();
+    };
+    grid.appendChild(chip);
+  });
+}
+
+function selectAll(all){
+  selected = new Set(all ? PLAYERS.map(p=>p.nome) : []);
+  document.querySelectorAll('.p-chip').forEach(c=> c.classList.toggle('on', all));
+  updateCount();
+}
+
+function updateCount(){
+  document.getElementById('countLabel').textContent = selected.size;
+  document.getElementById('btnSortear').disabled = selected.size < 5;
+}
+
+function shuffle(arr){
+  const a = [...arr];
+  for (let i = a.length-1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function sortear(){
+  const chosen = PLAYERS.filter(p=> selected.has(p.nome)).map(p=>({...p, overall: p.overall ?? 6}));
+  const numTeams = Math.floor(chosen.length / 5);
+  const shuffled = shuffle(chosen);
+  const reserveCount = chosen.length - numTeams*5;
+  const reserves = shuffled.slice(0, reserveCount);
+  const playing = shuffled.slice(reserveCount);
+
+  const teams = Array.from({length:numTeams}, ()=>[]);
+
+  // agrupa por posição e distribui em serpentina (snake draft) por overall dentro de cada posição
+  const grupos = {};
+  playing.forEach(p=>{
+    const pos = p.posicao || 'Indefinido';
+    (grupos[pos] = grupos[pos] || []).push(p);
+  });
+
+  Object.values(grupos).forEach(grupo=>{
+    grupo.sort((a,b)=> b.overall - a.overall);
+    let dir = 1, t = 0;
+    grupo.forEach(p=>{
+      teams[t].push(p);
+      t += dir;
+      if (t === numTeams){ t = numTeams-1; dir = -1; }
+      else if (t < 0){ t = 0; dir = 1; }
+    });
+  });
+
+  renderResultado(teams, reserves);
+}
+
+function renderResultado(teams, reserves){
+  const box = document.getElementById('resultado');
+  let html = `<div class="card"><h2>Times sorteados</h2><div class="teams-grid">`;
+  teams.forEach((team, i)=>{
+    const avg = (team.reduce((s,p)=>s+p.overall,0) / team.length).toFixed(1);
+    html += `<div class="team-card">
+      <h3>Time ${i+1} <span class="avg">Média ${avg}</span></h3>
+      <ul>${team.map(p=>`<li><span>${p.nome} <span class="pos">${p.posicao||''}</span></span><span class="ov">${p.overall}</span></li>`).join('')}</ul>
+    </div>`;
+  });
+  html += `</div>`;
+  if (reserves.length){
+    html += `<div class="reserves"><h3>Reservas (${reserves.length})</h3><div class="list">${reserves.map(p=>`<span class="tag">${p.nome}</span>`).join('')}</div></div>`;
+  }
+  html += `<button class="btn btn-ghost" style="margin-top:16px;" onclick="sortear()">🔁 Sortear de novo</button></div>`;
+  box.innerHTML = html;
+}
+
+boot();
+</script>
+</body>
+</html>
