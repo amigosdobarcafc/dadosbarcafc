@@ -200,5 +200,48 @@ const ABFC = (function(){
     }));
   }
 
-  return {MONTHS, SEASONS, CATEGORIAS_ARQUIVO, MARCOS, fetchJSON, loadAllData, loadPlayersAndRatings, calcular, topN, mergeCounters, totals, curiosidadesDaRodada};
+  const CATEGORIAS_RADAR = {
+    FOR: ["Força do chute", "Força física"],
+    VEL: ["Velocidade (aceleração)", "Velocidade (ritmo)"],
+    PAS: ["Passe pelo alto", "Passe rasteiro"],
+    FIN: ["Finalização", "Talento Ofensivo"],
+    DEF: ["Desarme", "Disputa de bola", "Talento Defensivo"],
+    TEC: ["Controle de Bola", "Técnica"],
+  };
+
+  function mediaCategoria(skills, campos){
+    if (!skills) return 0;
+    const vals = campos.map(c => skills[c]).filter(v => typeof v === 'number');
+    if (!vals.length) return 0;
+    return vals.reduce((a,b)=>a+b,0) / vals.length;
+  }
+
+  function radarSVG(skills, opts){
+    opts = opts || {};
+    const size = opts.size || 140, cx = size/2, cy = size/2, R = (opts.size||140) * 0.38;
+    const color = opts.color || '#FF6A00';
+    const eixos = Object.keys(CATEGORIAS_RADAR);
+    const valores = eixos.map(eixo => mediaCategoria(skills, CATEGORIAS_RADAR[eixo]));
+    const n = eixos.length;
+    function pt(i, val){
+      const ang = -Math.PI/2 + i * (2*Math.PI/n);
+      const r = (val/10) * R;
+      return [cx + r*Math.cos(ang), cy + r*Math.sin(ang)];
+    }
+    const poly = valores.map((v,i)=> pt(i,v).join(',')).join(' ');
+    const grid = [0.25,0.5,0.75,1].map(f=>{
+      const p = eixos.map((_,i)=> pt(i, f*10).join(',')).join(' ');
+      return `<polygon points="${p}" fill="none" stroke="#2A2A2E" stroke-width="1"/>`;
+    }).join('');
+    const labels = eixos.map((eixo,i)=>{
+      const [x,y] = pt(i, 12.5);
+      return `<text x="${x}" y="${y}" fill="#8C8C92" font-size="${size*0.064}" font-family="Oswald" text-anchor="middle" dominant-baseline="middle">${eixo}</text>`;
+    }).join('');
+    return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+      ${grid}${labels}
+      <polygon points="${poly}" fill="${color}" fill-opacity="0.35" stroke="${color}" stroke-width="2"/>
+    </svg>`;
+  }
+
+  return {MONTHS, SEASONS, CATEGORIAS_ARQUIVO, MARCOS, CATEGORIAS_RADAR, fetchJSON, loadAllData, loadPlayersAndRatings, calcular, topN, mergeCounters, totals, curiosidadesDaRodada, mediaCategoria, radarSVG};
 })();
