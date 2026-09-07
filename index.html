@@ -220,21 +220,20 @@ async function boot(){
   const yearRounds = DATA.allRounds.filter(r=>r.year===DATA.currentYear);
   const lastRound = yearRounds[yearRounds.length-1];
   const currentSeasonInfo = lastRound ? (ABFC.SEASONS.find(s=>s.months.includes(lastRound.month)) || ABFC.SEASONS[0]) : ABFC.SEASONS[0];
-  const seasonRounds = lastRound ? yearRounds.filter(r=>currentSeasonInfo.months.includes(r.month)) : [];
 
   document.getElementById('seasonNote').textContent = lastRound
     ? `${currentSeasonInfo.label} de ${DATA.currentYear} · atualizado após a rodada de ${fmtDate(lastRound.data)}`
     : `Temporada ${DATA.currentYear}`;
 
-  const d = ABFC.calcular(seasonRounds);
+  const d = ABFC.calcular(yearRounds);
   const totalGols = Object.values(d.g).reduce((a,b)=>a+b,0);
   const totalAssists = Object.values(d.a).reduce((a,b)=>a+b,0);
   const strip = document.getElementById('statStrip');
   [
-    ['Rodadas', seasonRounds.length],
-    ['Gols na temporada', totalGols],
-    ['Assistências', totalAssists],
-    ['Atletas ativos', Object.keys(d.j).length],
+    ['Rodadas em 2026', yearRounds.length],
+    ['Gols em 2026', totalGols],
+    ['Assistências em 2026', totalAssists],
+    ['Atletas ativos em 2026', Object.keys(d.j).length],
   ].forEach(([label, val])=>{
     const box = document.createElement('div'); box.className = 'stat';
     box.innerHTML = `<b>0</b><span>${label}</span>`;
