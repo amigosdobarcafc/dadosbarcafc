@@ -351,7 +351,7 @@ async function renderJogadores(box){
       const tier = p.overall==null ? 'none' : p.overall>=8 ? 'gold' : p.overall>=6 ? 'silver' : 'bronze';
       const radar = p.skills ? ABFC.radarSVG(p.skills, {size:150, color:'#FF6A00'}) : '<div class="no-rating">Ainda sem avaliação</div>';
       return `<div class="player-card reveal">
-        <div class="ov-badge ${tier}">${p.overall ?? '—'}</div>
+        <div class="ov-badge ${tier}">${p.overall!=null ? Math.round(p.overall) : '—'}</div>
         <h3>${p.nome}</h3>
         <div class="pos-tag">${p.posicao || 'Indefinido'}</div>
         ${radar}
