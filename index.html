@@ -361,6 +361,7 @@ async function renderJogadores(box){
   document.getElementById('playerSearch').addEventListener('input', draw);
   document.getElementById('playerPosFilter').addEventListener('change', draw);
   draw();
+}
 
 function renderCuriosidades(seasonRounds){
   if (!seasonRounds.length) return '';
