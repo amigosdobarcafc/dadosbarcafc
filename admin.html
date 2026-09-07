@@ -268,6 +268,10 @@
           <select id="pPosicao">
             <option>Goleiro</option><option>Fixo</option><option>Ala</option><option>Pivô</option>
           </select>
+          <label for="pOverall">Overall (0-10)</label>
+          <input type="number" id="pOverall" min="0" max="10" step="0.1" placeholder="ex: 7">
+          <label style="margin-top:16px;">Skills (0-10 cada)</label>
+          <div id="skillsGrid" class="destaques-grid" style="grid-template-columns:1fr 1fr; gap:8px 14px;"></div>
           <div class="row" style="margin-top:18px;">
             <button class="btn" onclick="savePlayer()">Salvar</button>
             <button class="btn btn-ghost" onclick="clearPlayerForm()">Cancelar edição</button>
@@ -336,6 +340,7 @@ let session = JSON.parse(localStorage.getItem('abfc_session') || 'null');
 let players = [];
 let roundsCache = {};      // { year: [rounds...] }
 let legacy = {};           // { "2025": {gols:{}, assists:{}} }
+let ratings = {};          // { nome: {overall, posicao, skills:{...}} }
 let editingRoundDate = null;
 let editingPlayerIdx = null;
 
@@ -343,6 +348,18 @@ const CATEGORIAS = {
   craque: "⭐ Craque", defensor: "🛡️ Defensor", goleiro: "🧤 Goleiro",
   capitao: "🎗️ Capitão", coringa: "🃏 Coringa", bola_murcha: "💩 Bola Murcha"
 };
+
+const SKILLS_20 = ["Controle de Bola","Desarme","Disputa de bola","Equilíbrio","Finalização","Força do chute","Força física","Fôlego","Individualismo","Jogo coletivo","Liderança","Passe pelo alto","Passe rasteiro","Raça","Talento Defensivo","Talento Ofensivo","Talento de Goleiro","Técnica","Velocidade (aceleração)","Velocidade (ritmo)"];
+
+function renderSkillsGrid(){
+  const grid = document.getElementById('skillsGrid');
+  grid.innerHTML = SKILLS_20.map(s => `
+    <div>
+      <label style="margin:6px 0 4px; font-size:.72rem;">${s}</label>
+      <input type="number" min="0" max="10" class="skillInput" data-skill="${s}">
+    </div>
+  `).join('');
+}
 
 function toast(msg, isError=false){
   const t = document.getElementById('toast');
@@ -393,14 +410,17 @@ async function boot(){
   document.getElementById('whoUser').textContent = 'Logado como ' + session.user;
 
   try{
-    const [pRes, lRes] = await Promise.all([
+    const [pRes, lRes, rRes] = await Promise.all([
       api('/data/players.json'),
       api('/data/legacy_totals.json'),
+      api('/data/ratings.json'),
     ]);
     players = pRes.content || [];
     legacy = lRes.content || {};
+    ratings = rRes.content || {};
   }catch(e){ toast('Erro ao carregar dados: ' + e.message, true); return; }
 
+  renderSkillsGrid();
   renderPresencaPicker();
   renderDestaquesGrid();
   renderPlayersTable();
@@ -608,15 +628,24 @@ function renderPlayersTable(){
     const realIdx = players.indexOf(p);
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${p.nome}</td><td>${p.posicao}</td>
-      <td style="text-align:right;"><button class="btn btn-ghost" style="padding:6px 10px; font-size:.75rem;" onclick="editPlayer(${realIdx})">Editar</button></td>`;
+      <td style="text-align:right;">
+        <button class="btn btn-ghost" style="padding:6px 10px; font-size:.75rem;" onclick="editPlayer(${realIdx})">Editar</button>
+        <button class="btn btn-danger" style="padding:6px 10px; font-size:.75rem;" onclick="removePlayer(${realIdx})">Remover</button>
+      </td>`;
     tbody.appendChild(tr);
   });
 }
 
 function editPlayer(idx){
   editingPlayerIdx = idx;
-  document.getElementById('pNome').value = players[idx].nome;
+  const nome = players[idx].nome;
+  document.getElementById('pNome').value = nome;
   document.getElementById('pPosicao').value = players[idx].posicao;
+  const r = ratings[nome];
+  document.getElementById('pOverall').value = r ? r.overall : '';
+  document.querySelectorAll('.skillInput').forEach(inp=>{
+    inp.value = (r && r.skills && r.skills[inp.dataset.skill] != null) ? r.skills[inp.dataset.skill] : '';
+  });
   document.getElementById('playerFormTitle').textContent = 'Editando atleta';
 }
 
@@ -624,20 +653,57 @@ function clearPlayerForm(){
   editingPlayerIdx = null;
   document.getElementById('pNome').value = '';
   document.getElementById('pPosicao').selectedIndex = 0;
+  document.getElementById('pOverall').value = '';
+  document.querySelectorAll('.skillInput').forEach(inp=> inp.value = '');
   document.getElementById('playerFormTitle').textContent = 'Novo atleta';
 }
 
 async function savePlayer(){
   const nome = document.getElementById('pNome').value.trim();
   const posicao = document.getElementById('pPosicao').value;
+  const overallRaw = document.getElementById('pOverall').value;
   if (!nome) { toast('Informe o nome', true); return; }
+
+  const nomeAnterior = editingPlayerIdx !== null ? players[editingPlayerIdx].nome : null;
   if (editingPlayerIdx !== null) players[editingPlayerIdx] = {nome, posicao};
   else players.push({nome, posicao});
+
+  if (nomeAnterior && nomeAnterior !== nome && ratings[nomeAnterior]){
+    ratings[nome] = ratings[nomeAnterior];
+    delete ratings[nomeAnterior];
+  }
+
+  if (overallRaw !== ''){
+    const skills = {};
+    document.querySelectorAll('.skillInput').forEach(inp=>{
+      if (inp.value !== '') skills[inp.dataset.skill] = parseFloat(inp.value);
+    });
+    ratings[nome] = {overall: parseFloat(overallRaw), posicao, skills};
+  }
+
   try{
-    await api('/data/players.json', 'POST', players);
+    await Promise.all([
+      api('/data/players.json', 'POST', players),
+      api('/data/ratings.json', 'POST', ratings),
+    ]);
     toast('Elenco atualizado');
     renderPlayersTable(); renderPresencaPicker(); clearPlayerForm();
   }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
+}
+
+async function removePlayer(idx){
+  const nome = players[idx].nome;
+  if (!confirm(`Remover ${nome} do elenco? Isso também apaga a avaliação dele.`)) return;
+  players.splice(idx, 1);
+  delete ratings[nome];
+  try{
+    await Promise.all([
+      api('/data/players.json', 'POST', players),
+      api('/data/ratings.json', 'POST', ratings),
+    ]);
+    toast('Jogador removido');
+    renderPlayersTable(); renderPresencaPicker(); clearPlayerForm();
+  }catch(e){ toast('Erro ao remover: ' + e.message, true); }
 }
 
 // ---------- LEGADO ----------
