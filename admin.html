@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABFC · Painel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0B0B0C; --bg-card:#151517; --bg-card-2:#1A1A1D; --bg-input:#1F1F23;
@@ -116,24 +116,29 @@
     content:''; position:absolute; inset:0; opacity:.05; pointer-events:none;
     background-image: repeating-linear-gradient(90deg, transparent, transparent 78px, #FF6A00 78px, #FF6A00 80px);
   }
+  .ig-watermark{position:absolute; width:640px; right:-160px; bottom:-120px; opacity:.05; transform:rotate(-6deg); pointer-events:none;}
   .ig-glow{position:absolute; width:500px; height:500px; border-radius:50%; background:#FF6A00; opacity:.10; filter:blur(90px); top:-160px; right:-160px;}
   .ig-head{display:flex; align-items:center; gap:22px; margin-bottom:6px; position:relative; z-index:1;}
   .ig-head img{width:80px; height:80px; object-fit:contain; filter:drop-shadow(0 6px 18px rgba(255,106,0,.4));}
   .ig-head .kicker{color:#FF6A00; font-family:'Oswald',sans-serif; font-weight:600; font-size:20px; letter-spacing:3px;}
-  .ig-head h1{font-family:'Oswald',sans-serif; font-size:50px; margin:2px 0 0; color:#fff; line-height:1; letter-spacing:.5px;}
+  .ig-head h1{font-family:'Bebas Neue',sans-serif; font-size:64px; margin:0; color:#fff; line-height:1; letter-spacing:1px;}
   .ig-chip{
     display:inline-flex; align-items:center; gap:8px; background:rgba(255,106,0,.12); border:1px solid rgba(255,106,0,.35);
     color:#FFB067; font-family:'Oswald',sans-serif; font-weight:600; font-size:20px; padding:8px 20px; border-radius:30px; margin:22px 0 34px;
   }
   .ig-chip .dot{width:8px; height:8px; border-radius:50%; background:#31D07A;}
   .ig-mvp{
-    background:linear-gradient(150deg,#FF7A1A 0%,#B84400 100%); border-radius:26px; padding:34px 42px; text-align:center; margin-bottom:38px;
-    position:relative; overflow:hidden; box-shadow:0 30px 60px -20px rgba(255,106,0,.5);
+    background:linear-gradient(150deg,#FF7A1A 0%,#B84400 100%); border-radius:26px; padding:36px 42px; text-align:center; margin-bottom:38px;
+    position:relative; overflow:hidden; box-shadow:0 30px 70px -18px rgba(255,106,0,.65);
   }
-  .ig-mvp .glowring{position:absolute; width:260px; height:260px; border-radius:50%; border:2px solid rgba(255,255,255,.18); right:-70px; bottom:-90px;}
-  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; letter-spacing:3px; color:#1A0D00; opacity:.7; position:relative; z-index:1;}
-  .ig-mvp h2{font-family:'Oswald',sans-serif; font-size:54px; margin:8px 0 2px; color:#1A0D00; position:relative; z-index:1;}
-  .ig-mvp .n{font-size:23px; color:#1A0D00; opacity:.82; font-weight:600; position:relative; z-index:1;}
+  .ig-mvp .glowring{position:absolute; width:260px; height:260px; border-radius:50%; border:2px solid rgba(255,255,255,.22); right:-70px; bottom:-90px;}
+  .ig-mvp .glowring2{position:absolute; width:180px; height:180px; border-radius:50%; border:1px solid rgba(255,255,255,.15); left:-50px; top:-60px;}
+  .ig-mvp .t{font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; letter-spacing:4px; color:#1A0D00; opacity:.68; position:relative; z-index:1;}
+  .ig-mvp h2{
+    font-family:'Bebas Neue',sans-serif; font-size:76px; margin:6px 0 4px; color:#FFF6E8; position:relative; z-index:1; letter-spacing:1px;
+    text-shadow: 0 0 30px rgba(255,255,255,.55), 0 4px 0 rgba(26,13,0,.25);
+  }
+  .ig-mvp .n{font-size:23px; color:#1A0D00; opacity:.85; font-weight:600; position:relative; z-index:1;}
 
   .ig-table{background:#131315; border:1px solid #232326; border-radius:22px; padding:8px 0; position:relative; z-index:1;}
   .ig-thead{display:grid; grid-template-columns:60px 1fr 70px 70px 70px 70px 70px 84px; padding:16px 28px; font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:1px; color:#6A6A70; text-transform:uppercase; border-bottom:1px solid #232326;}
@@ -682,10 +687,8 @@ async function savePlayer(){
   }
 
   try{
-    await Promise.all([
-      api('/data/players.json', 'POST', players),
-      api('/data/ratings.json', 'POST', ratings),
-    ]);
+    await api('/data/players.json', 'POST', players);
+    await api('/data/ratings.json', 'POST', ratings);
     toast('Elenco atualizado');
     renderPlayersTable(); renderPresencaPicker(); clearPlayerForm();
   }catch(e){ toast('Erro ao salvar: ' + e.message, true); }
@@ -697,10 +700,8 @@ async function removePlayer(idx){
   players.splice(idx, 1);
   delete ratings[nome];
   try{
-    await Promise.all([
-      api('/data/players.json', 'POST', players),
-      api('/data/ratings.json', 'POST', ratings),
-    ]);
+    await api('/data/players.json', 'POST', players);
+    await api('/data/ratings.json', 'POST', ratings);
     toast('Jogador removido');
     renderPlayersTable(); renderPresencaPicker(); clearPlayerForm();
   }catch(e){ toast('Erro ao remover: ' + e.message, true); }
@@ -820,10 +821,10 @@ async function renderImgRodada(){
     </div>`;
   }
 
-  const html = `<div class="ig-card"><div class="ig-glow"></div>
+  const html = `<div class="ig-card"><div class="ig-glow"></div><img class="ig-watermark" src="logobarca.png">
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>ESTATÍSTICAS DA RODADA</h1></div></div>
     <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(round.data)} · TEMPORADA ${data.currentYear}</div>
-    ${lider ? `<div class="ig-mvp"><div class="glowring"></div><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
+    ${lider ? `<div class="ig-mvp"><div class="glowring"></div><div class="glowring2"></div><div class="t">M.V.P. DA RODADA</div><h2>${lider[0]}</h2><div class="n">${lider[1]} participações em gols</div></div>` : ''}
     <div class="ig-cols2">
       ${coluna('Artilharia', '⚽', gols)}
       ${coluna('Assistências', '👟', assists)}
@@ -857,7 +858,7 @@ async function renderImgTemporada(){
     </div>`;
   }
 
-  const html = `<div class="ig-card"><div class="ig-glow"></div>
+  const html = `<div class="ig-card"><div class="ig-glow"></div><img class="ig-watermark" src="logobarca.png">
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>BARÇASCORE</h1></div></div>
     <div class="ig-chip"><span class="dot"></span>${seasonInfo.label.toUpperCase()} ${data.currentYear} · APÓS A RODADA DE ${fmtDateBR(round.data)}</div>
     <div class="ig-podium">
@@ -879,7 +880,7 @@ async function renderImgCuriosidades(){
   const curios = ABFC.curiosidadesDaRodada(data.allRounds, data.legacy, round).slice(0, 6);
   if (!curios.length) { toast('Sem curiosidades pra essa rodada', true); return; }
 
-  const html = `<div class="ig-card"><div class="ig-glow"></div>
+  const html = `<div class="ig-card"><div class="ig-glow"></div><img class="ig-watermark" src="logobarca.png">
     <div class="ig-head"><img src="logobarca.png"><div><div class="kicker">AMIGOS DO BARÇA F.C.</div><h1>CURIOSIDADES</h1></div></div>
     <div class="ig-chip"><span class="dot"></span>RODADA DE ${fmtDateBR(round.data)} · TEMPORADA ${data.currentYear}</div>
     <div class="ig-curio-list">
