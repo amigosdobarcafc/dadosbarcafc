@@ -120,22 +120,55 @@
   }
   .insta-btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(188,24,136,.35);}
   footer .credit{display:block; margin-top:16px; color:var(--text-faint); font-size:.72rem;}
+
+  /* ---- jogadores ---- */
+  .players-toolbar{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:24px;}
+  .players-toolbar input, .players-toolbar select{
+    background:var(--bg-card); border:1px solid var(--border); color:var(--text); border-radius:10px; padding:9px 14px; font-size:.85rem; font-family:'Inter',sans-serif;
+  }
+  .players-toolbar input{min-width:200px;}
+  .players-grid-site{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px;}
+  .player-card{
+    background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:18px; text-align:center;
+    transition:transform .2s ease, border-color .2s ease; position:relative; overflow:hidden;
+  }
+  .player-card:hover{transform:translateY(-4px); border-color:var(--accent-2);}
+  .player-card .ov-badge{
+    position:absolute; top:14px; right:14px; width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    font-family:'Oswald',sans-serif; font-weight:700; font-size:1rem; color:#1A0D00;
+  }
+  .player-card .ov-badge.gold{background:linear-gradient(145deg,#FFD37A,#C98A1F);}
+  .player-card .ov-badge.silver{background:linear-gradient(145deg,#E4E4E8,#9A9AA2);}
+  .player-card .ov-badge.bronze{background:linear-gradient(145deg,#E3A16C,#9C5A2C);}
+  .player-card .ov-badge.none{background:var(--bg-card-2); color:var(--text-faint); font-size:.8rem;}
+  .player-card h3{font-size:1rem; margin:4px 0 2px; text-align:left; padding-right:44px;}
+  .player-card .pos-tag{font-size:.68rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.5px; text-align:left; margin-bottom:6px;}
+  .player-card .no-rating{color:var(--text-faint); font-size:.8rem; padding:36px 10px;}
   @media (max-width:600px){ .hero h1{font-size:1.5rem;} .stat-strip .stat{padding:0 16px;} }
   #adminBtn:hover{color:var(--accent); border-color:var(--accent);}
+
+  .hero-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px;}
+  .hero-btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:12px;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:.9rem; letter-spacing:.3px; transition:.2s;
+  }
+  .hero-btn.primary{background:var(--accent); color:#0B0B0C; box-shadow:0 10px 26px -8px rgba(255,106,0,.55);}
+  .hero-btn.primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px -8px rgba(255,106,0,.7);}
+  .hero-btn.ghost{background:var(--bg-card); border:1px solid var(--border); color:var(--text);}
+  .hero-btn.ghost:hover{border-color:var(--accent); color:var(--accent);}
 </style>
 </head>
 <body>
-
-<div style="position:fixed; top:16px; right:16px; z-index:30; display:flex; gap:8px;">
-  <a href="sorteio.html" style="display:flex; align-items:center; gap:7px; background:var(--accent); color:#0B0B0C; padding:9px 16px; border-radius:20px; font-family:'Oswald',sans-serif; font-size:.75rem; font-weight:600; letter-spacing:.4px;">🎲 Sorteador</a>
-  <a href="admin.html" id="adminBtn" style="display:flex; align-items:center; gap:7px; background:var(--bg-card); border:1px solid var(--border); color:var(--text-dim); padding:9px 16px; border-radius:20px; font-family:'Oswald',sans-serif; font-size:.75rem; letter-spacing:.4px; backdrop-filter:blur(8px);">🔑 Admin</a>
-</div>
 
 <div class="hero">
   <div class="crest-wrap"><img src="logobarca.png" alt="Amigos do Barça FC"></div>
   <div class="kicker">AMIGOS DO BARÇA F.C. · DESDE 2013</div>
   <h1>Central de Dados ABFC</h1>
   <div class="season-note"><span class="live-dot"></span><span id="seasonNote">Carregando…</span></div>
+  <div class="hero-actions">
+    <a href="sorteio.html" class="hero-btn primary">🎲 Sorteador de Times</a>
+    <a href="admin.html" class="hero-btn ghost">🔑 Painel Admin</a>
+  </div>
   <div class="stat-strip" id="statStrip"></div>
 </div>
 
@@ -145,6 +178,7 @@
   <button data-tab="temporadas">Temporadas</button>
   <button data-tab="historico">Histórico</button>
   <button data-tab="arquivo">Arquivo</button>
+  <button data-tab="jogadores">Jogadores</button>
 </div>
 
 <main>
@@ -280,8 +314,53 @@ function render(){
     });
     box.innerHTML = html + '</div>';
   }
+  else if (activeTab === 'jogadores'){
+    renderJogadores(box);
+  }
   observeReveal();
 }
+
+let PLAYERS_CACHE = null;
+async function renderJogadores(box){
+  box.innerHTML = '<div class="empty">Carregando elenco…</div>';
+  if (!PLAYERS_CACHE) PLAYERS_CACHE = await ABFC.loadPlayersAndRatings('');
+  const players = [...PLAYERS_CACHE].sort((a,b)=>{
+    if ((b.overall??-1) !== (a.overall??-1)) return (b.overall??-1) - (a.overall??-1);
+    return a.nome.localeCompare(b.nome);
+  });
+
+  box.innerHTML = `
+    <div class="players-toolbar">
+      <input type="text" id="playerSearch" placeholder="Buscar jogador...">
+      <select id="playerPosFilter">
+        <option value="">Todas as posições</option>
+        <option>Goleiro</option><option>Fixo</option><option>Ala</option><option>Pivô</option>
+      </select>
+    </div>
+    <div class="players-grid-site" id="playersGridSite"></div>`;
+
+  function draw(){
+    const term = document.getElementById('playerSearch').value.trim().toLowerCase();
+    const pos = document.getElementById('playerPosFilter').value;
+    const filtered = players.filter(p =>
+      p.nome.toLowerCase().includes(term) && (!pos || p.posicao === pos)
+    );
+    const grid = document.getElementById('playersGridSite');
+    grid.innerHTML = filtered.map(p=>{
+      const tier = p.overall==null ? 'none' : p.overall>=8 ? 'gold' : p.overall>=6 ? 'silver' : 'bronze';
+      const radar = p.skills ? ABFC.radarSVG(p.skills, {size:150, color:'#FF6A00'}) : '<div class="no-rating">Ainda sem avaliação</div>';
+      return `<div class="player-card reveal">
+        <div class="ov-badge ${tier}">${p.overall ?? '—'}</div>
+        <h3>${p.nome}</h3>
+        <div class="pos-tag">${p.posicao || 'Indefinido'}</div>
+        ${radar}
+      </div>`;
+    }).join('') || '<div class="empty">Nenhum jogador encontrado</div>';
+    observeReveal();
+  }
+  document.getElementById('playerSearch').addEventListener('input', draw);
+  document.getElementById('playerPosFilter').addEventListener('change', draw);
+  draw();
 
 function renderCuriosidades(seasonRounds){
   if (!seasonRounds.length) return '';
