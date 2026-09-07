@@ -374,6 +374,7 @@ function renderCuriosidades(seasonRounds){
 }
 
 function renderSecao(d, isHistorico=false){
+  const limite = isHistorico ? 9999 : 10;
   const lider = ABFC.topN(d.ga, 1)[0];
   const leaderHtml = lider ? `
     <div class="leader reveal">
@@ -383,7 +384,7 @@ function renderSecao(d, isHistorico=false){
     </div>` : '';
 
   function table(title, icon, counter, matches, unitLabel){
-    const rows = ABFC.topN(counter, 10);
+    const rows = ABFC.topN(counter, limite);
     if (!rows.length) return `<div class="card reveal"><h3>${icon} ${title}</h3><div style="padding:16px 0;color:var(--text-faint);font-size:.82rem;">Sem dados neste recorte</div></div>`;
     const body = rows.map(([n,v],i)=>{
       const m = matches[n] || 0;
@@ -392,7 +393,9 @@ function renderSecao(d, isHistorico=false){
       return `<tr><td class="pos">${i+1}</td><td>${n} <small>(${m}j)</small></td><td class="val">${v}</td>${mediaCol}</tr>`;
     }).join('');
     const head = isHistorico ? '' : `<th>${unitLabel}</th>`;
-    return `<div class="card reveal"><h3>${icon} ${title}</h3><table><tr><th>#</th><th>Atleta</th><th>Tot</th>${head}</tr>${body}</table></div>`;
+    const tableHtml = `<table><tr><th>#</th><th>Atleta</th><th>Tot</th>${head}</tr>${body}</table>`;
+    const wrapped = isHistorico ? `<div style="max-height:520px; overflow-y:auto;">${tableHtml}</div>` : tableHtml;
+    return `<div class="card reveal"><h3>${icon} ${title}</h3>${wrapped}</div>`;
   }
 
   return leaderHtml + `<div class="grid">
