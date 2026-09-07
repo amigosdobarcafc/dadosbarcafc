@@ -56,10 +56,14 @@
   .team-card h3{font-size:.95rem; margin:0 0 4px; display:flex; justify-content:space-between; align-items:center;}
   .team-card .avg{color:var(--accent-2); font-size:.8rem; font-family:'Oswald',sans-serif;}
   .team-card ul{list-style:none; padding:0; margin:10px 0 0;}
-  .team-card li{display:flex; justify-content:space-between; padding:6px 0; border-top:1px solid #202023; font-size:.85rem;}
+  .team-card li{display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-top:1px solid #202023; font-size:.85rem; gap:6px;}
   .team-card li:first-child{border-top:none;}
   .team-card li .pos{color:var(--text-faint); font-size:.7rem; text-transform:uppercase;}
   .team-card li .ov{color:var(--accent-2); font-family:'Oswald',sans-serif; font-weight:700;}
+  .team-card li .swap-btn{background:none; border:1px solid var(--border); color:var(--text-faint); border-radius:6px; padding:2px 6px; font-size:.7rem; cursor:pointer;}
+  .team-card li .swap-btn:hover{border-color:var(--accent); color:var(--accent);}
+  .swap-select{background:var(--bg-card); border:1px solid var(--accent); color:var(--text); border-radius:6px; padding:4px 6px; font-size:.75rem; margin-top:4px; width:100%;}
+  .radar-wrap{display:flex; justify-content:center; margin:12px 0 4px;}
 
   .reserves{margin-top:18px; padding:14px 18px; background:var(--bg-card-2); border:1px dashed var(--border); border-radius:12px;}
   .reserves h3{font-size:.85rem; color:var(--text-dim); margin:0 0 8px;}
@@ -150,16 +154,17 @@ function sortear(){
 
   const teams = Array.from({length:numTeams}, ()=>[]);
 
-  // agrupa por posição e distribui em serpentina (snake draft) por overall dentro de cada posição
+  // agrupa por posição e distribui em serpentina (snake draft) contínua entre os grupos,
+  // garantindo que cada time termine com exatamente 5 jogadores
   const grupos = {};
   playing.forEach(p=>{
     const pos = p.posicao || 'Indefinido';
     (grupos[pos] = grupos[pos] || []).push(p);
   });
 
+  let dir = 1, t = 0;
   Object.values(grupos).forEach(grupo=>{
     grupo.sort((a,b)=> b.overall - a.overall);
-    let dir = 1, t = 0;
     grupo.forEach(p=>{
       teams[t].push(p);
       t += dir;
@@ -168,25 +173,117 @@ function sortear(){
     });
   });
 
+  window.__ultimoSorteio = {teams, reserves};
   renderResultado(teams, reserves);
+}
+
+const CATEGORIAS_RADAR = {
+  FOR: ["Força do chute", "Força física"],
+  VEL: ["Velocidade (aceleração)", "Velocidade (ritmo)"],
+  PAS: ["Passe pelo alto", "Passe rasteiro"],
+  FIN: ["Finalização", "Talento Ofensivo"],
+  DEF: ["Desarme", "Disputa de bola", "Talento Defensivo"],
+  TEC: ["Controle de Bola", "Técnica"],
+};
+
+function mediaCategoria(skills, campos){
+  if (!skills) return 6;
+  const vals = campos.map(c => skills[c]).filter(v => typeof v === 'number');
+  if (!vals.length) return 6;
+  return vals.reduce((a,b)=>a+b,0) / vals.length;
+}
+
+function radarTime(team){
+  const eixos = Object.keys(CATEGORIAS_RADAR);
+  const valores = eixos.map(eixo=>{
+    const medias = team.map(p => mediaCategoria(p.skills, CATEGORIAS_RADAR[eixo]));
+    return medias.reduce((a,b)=>a+b,0) / medias.length;
+  });
+  const size = 140, cx = size/2, cy = size/2, R = 54;
+  const n = eixos.length;
+  function pt(i, val){
+    const ang = -Math.PI/2 + i * (2*Math.PI/n);
+    const r = (val/10) * R;
+    return [cx + r*Math.cos(ang), cy + r*Math.sin(ang)];
+  }
+  const poly = valores.map((v,i)=> pt(i,v).join(',')).join(' ');
+  const grid = [0.25,0.5,0.75,1].map(f=>{
+    const p = eixos.map((_,i)=> pt(i, f*10).join(',')).join(' ');
+    return `<polygon points="${p}" fill="none" stroke="#2A2A2E" stroke-width="1"/>`;
+  }).join('');
+  const labels = eixos.map((eixo,i)=>{
+    const [x,y] = pt(i, 12.5);
+    return `<text x="${x}" y="${y}" fill="#8C8C92" font-size="9" font-family="Oswald" text-anchor="middle" dominant-baseline="middle">${eixo}</text>`;
+  }).join('');
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    ${grid}${labels}
+    <polygon points="${poly}" fill="#FF6A00" fill-opacity="0.35" stroke="#FF6A00" stroke-width="2"/>
+  </svg>`;
 }
 
 function renderResultado(teams, reserves){
   const box = document.getElementById('resultado');
   let html = `<div class="card"><h2>Times sorteados</h2><div class="teams-grid">`;
-  teams.forEach((team, i)=>{
+  teams.forEach((team, ti)=>{
     const avg = (team.reduce((s,p)=>s+p.overall,0) / team.length).toFixed(1);
     html += `<div class="team-card">
-      <h3>Time ${i+1} <span class="avg">Média ${avg}</span></h3>
-      <ul>${team.map(p=>`<li><span>${p.nome} <span class="pos">${p.posicao||''}</span></span><span class="ov">${p.overall}</span></li>`).join('')}</ul>
+      <h3>Time ${ti+1} <span class="avg">Média ${avg}</span></h3>
+      <div class="radar-wrap">${radarTime(team)}</div>
+      <ul>${team.map((p,pi)=>`
+        <li>
+          <span>${p.nome} <span class="pos">${p.posicao||''}</span></span>
+          <span style="display:flex; align-items:center; gap:6px;">
+            <span class="ov">${p.overall}</span>
+            <button class="swap-btn" onclick="abrirTroca(${ti},${pi})">⇄</button>
+          </span>
+        </li>
+        <div id="swapSlot-${ti}-${pi}"></div>
+      `).join('')}</ul>
     </div>`;
   });
   html += `</div>`;
   if (reserves.length){
-    html += `<div class="reserves"><h3>Reservas (${reserves.length})</h3><div class="list">${reserves.map(p=>`<span class="tag">${p.nome}</span>`).join('')}</div></div>`;
+    html += `<div class="reserves"><h3>Reservas (${reserves.length})</h3><div class="list" id="reservesList">${reserves.map((p,ri)=>`<span class="tag" data-ri="${ri}">${p.nome}</span>`).join('')}</div></div>`;
   }
   html += `<button class="btn btn-ghost" style="margin-top:16px;" onclick="sortear()">🔁 Sortear de novo</button></div>`;
   box.innerHTML = html;
+}
+
+function todosOsJogadoresDoSorteio(){
+  const {teams, reserves} = window.__ultimoSorteio;
+  const lista = [];
+  teams.forEach((team, ti)=> team.forEach((p, pi)=> lista.push({...p, onde:'time', ti, pi})));
+  reserves.forEach((p, ri)=> lista.push({...p, onde:'reserva', ri}));
+  return lista;
+}
+
+function abrirTroca(ti, pi){
+  const slot = document.getElementById(`swapSlot-${ti}-${pi}`);
+  if (slot.innerHTML){ slot.innerHTML = ''; return; }
+  const atual = window.__ultimoSorteio.teams[ti][pi];
+  const opcoes = todosOsJogadoresDoSorteio().filter(p => p.nome !== atual.nome);
+  slot.innerHTML = `<select class="swap-select" onchange="trocarJogador(${ti},${pi}, this.value)">
+    <option value="">Trocar por...</option>
+    ${opcoes.map(p => `<option value="${p.onde==='time' ? 't:'+p.ti+':'+p.pi : 'r:'+p.ri}">${p.nome} (${p.onde==='time' ? 'Time '+(p.ti+1) : 'Reserva'})</option>`).join('')}
+  </select>`;
+}
+
+function trocarJogador(ti, pi, destino){
+  if (!destino) return;
+  const {teams, reserves} = window.__ultimoSorteio;
+  const atual = teams[ti][pi];
+  if (destino.startsWith('t:')){
+    const [, ti2, pi2] = destino.split(':').map((v,i)=> i===0?v:parseInt(v,10));
+    const outro = teams[ti2][pi2];
+    teams[ti][pi] = outro;
+    teams[ti2][pi2] = atual;
+  } else if (destino.startsWith('r:')){
+    const ri = parseInt(destino.split(':')[1], 10);
+    const outro = reserves[ri];
+    teams[ti][pi] = outro;
+    reserves[ri] = atual;
+  }
+  renderResultado(teams, reserves);
 }
 
 boot();
