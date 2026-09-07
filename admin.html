@@ -285,7 +285,7 @@
         <div class="card">
           <h2>Elenco</h2>
           <table class="plain">
-            <thead><tr><th>Nome</th><th>Posição</th><th></th></tr></thead>
+            <thead><tr><th>Nome</th><th>Posição</th><th>Overall</th><th></th></tr></thead>
             <tbody id="playersTable"></tbody>
           </table>
         </div>
@@ -646,7 +646,8 @@ function renderPlayersTable(){
   [...players].sort((a,b)=>a.nome.localeCompare(b.nome)).forEach((p)=>{
     const realIdx = players.indexOf(p);
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${p.nome}</td><td>${p.posicao}</td>
+    const ov = ratings[p.nome] ? ratings[p.nome].overall : null;
+    tr.innerHTML = `<td>${p.nome}</td><td>${p.posicao}</td><td>${ov ?? '—'}</td>
       <td style="text-align:right;">
         <button class="btn btn-ghost" style="padding:6px 10px; font-size:.75rem;" onclick="editPlayer(${realIdx})">Editar</button>
         <button class="btn btn-danger" style="padding:6px 10px; font-size:.75rem;" onclick="removePlayer(${realIdx})">Remover</button>
