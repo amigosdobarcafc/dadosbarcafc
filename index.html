@@ -217,11 +217,13 @@ function observeReveal(){
 
 async function boot(){
   DATA = await ABFC.loadAllData('');
-  const seasonRounds = DATA.allRounds.filter(r=>r.year===DATA.currentYear);
-  const lastRound = seasonRounds[seasonRounds.length-1];
+  const yearRounds = DATA.allRounds.filter(r=>r.year===DATA.currentYear);
+  const lastRound = yearRounds[yearRounds.length-1];
+  const currentSeasonInfo = lastRound ? (ABFC.SEASONS.find(s=>s.months.includes(lastRound.month)) || ABFC.SEASONS[0]) : ABFC.SEASONS[0];
+  const seasonRounds = lastRound ? yearRounds.filter(r=>currentSeasonInfo.months.includes(r.month)) : [];
 
   document.getElementById('seasonNote').textContent = lastRound
-    ? `Temporada ${DATA.currentYear} · atualizado após a rodada de ${fmtDate(lastRound.data)}`
+    ? `${currentSeasonInfo.label} de ${DATA.currentYear} · atualizado após a rodada de ${fmtDate(lastRound.data)}`
     : `Temporada ${DATA.currentYear}`;
 
   const d = ABFC.calcular(seasonRounds);
