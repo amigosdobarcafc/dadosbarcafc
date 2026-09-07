@@ -273,8 +273,8 @@
           <select id="pPosicao">
             <option>Goleiro</option><option>Fixo</option><option>Ala</option><option>Pivô</option>
           </select>
-          <label for="pOverall">Overall (0-10)</label>
-          <input type="number" id="pOverall" min="0" max="10" step="0.1" placeholder="ex: 7">
+          <label>Overall <span style="color:var(--text-dim); font-weight:400;">(calculado automaticamente pela média das skills)</span></label>
+          <div id="pOverallDisplay" style="background:var(--bg-input); border:1px solid var(--border); border-radius:8px; padding:11px 12px; font-family:'Oswald',sans-serif; font-size:1.1rem; color:var(--accent); font-weight:600;">—</div>
           <label style="margin-top:16px;">Skills (0-10 cada)</label>
           <div id="skillsGrid" class="destaques-grid" style="grid-template-columns:1fr 1fr; gap:8px 14px;"></div>
           <div class="row" style="margin-top:18px;">
@@ -361,9 +361,23 @@ function renderSkillsGrid(){
   grid.innerHTML = SKILLS_20.map(s => `
     <div>
       <label style="margin:6px 0 4px; font-size:.72rem;">${s}</label>
-      <input type="number" min="0" max="10" class="skillInput" data-skill="${s}">
+      <input type="number" min="0" max="10" class="skillInput" data-skill="${s}" oninput="atualizarOverallCalculado()">
     </div>
   `).join('');
+}
+
+function atualizarOverallCalculado(){
+  const vals = [...document.querySelectorAll('.skillInput')].map(i => i.value).filter(v => v !== '').map(Number);
+  const display = document.getElementById('pOverallDisplay');
+  if (!vals.length) { display.textContent = '—'; return; }
+  const media = vals.reduce((a,b)=>a+b,0) / vals.length;
+  display.textContent = media.toFixed(1);
+}
+
+function overallCalculadoAtual(){
+  const vals = [...document.querySelectorAll('.skillInput')].map(i => i.value).filter(v => v !== '').map(Number);
+  if (!vals.length) return null;
+  return Math.round((vals.reduce((a,b)=>a+b,0) / vals.length) * 10) / 10;
 }
 
 function toast(msg, isError=false){
@@ -647,10 +661,10 @@ function editPlayer(idx){
   document.getElementById('pNome').value = nome;
   document.getElementById('pPosicao').value = players[idx].posicao;
   const r = ratings[nome];
-  document.getElementById('pOverall').value = r ? r.overall : '';
   document.querySelectorAll('.skillInput').forEach(inp=>{
     inp.value = (r && r.skills && r.skills[inp.dataset.skill] != null) ? r.skills[inp.dataset.skill] : '';
   });
+  atualizarOverallCalculado();
   document.getElementById('playerFormTitle').textContent = 'Editando atleta';
 }
 
@@ -658,15 +672,15 @@ function clearPlayerForm(){
   editingPlayerIdx = null;
   document.getElementById('pNome').value = '';
   document.getElementById('pPosicao').selectedIndex = 0;
-  document.getElementById('pOverall').value = '';
   document.querySelectorAll('.skillInput').forEach(inp=> inp.value = '');
+  document.getElementById('pOverallDisplay').textContent = '—';
   document.getElementById('playerFormTitle').textContent = 'Novo atleta';
 }
 
 async function savePlayer(){
   const nome = document.getElementById('pNome').value.trim();
   const posicao = document.getElementById('pPosicao').value;
-  const overallRaw = document.getElementById('pOverall').value;
+  const overallCalc = overallCalculadoAtual();
   if (!nome) { toast('Informe o nome', true); return; }
 
   const nomeAnterior = editingPlayerIdx !== null ? players[editingPlayerIdx].nome : null;
@@ -678,12 +692,12 @@ async function savePlayer(){
     delete ratings[nomeAnterior];
   }
 
-  if (overallRaw !== ''){
+  if (overallCalc !== null){
     const skills = {};
     document.querySelectorAll('.skillInput').forEach(inp=>{
       if (inp.value !== '') skills[inp.dataset.skill] = parseFloat(inp.value);
     });
-    ratings[nome] = {overall: parseFloat(overallRaw), posicao, skills};
+    ratings[nome] = {overall: overallCalc, posicao, skills};
   }
 
   try{
