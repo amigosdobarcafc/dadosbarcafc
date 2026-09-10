@@ -960,5 +960,31 @@
       "Velocidade (aceleração)": 10,
       "Velocidade (ritmo)": 9
     }
+  },
+  "Vagner": {
+    "overall": 6.1,
+    "posicao": "Ala",
+    "skills": {
+      "Controle de Bola": 6,
+      "Desarme": 5,
+      "Disputa de bola": 6,
+      "Equilíbrio": 6,
+      "Finalização": 7,
+      "Força do chute": 7,
+      "Força física": 6,
+      "Fôlego": 6,
+      "Individualismo": 6,
+      "Jogo coletivo": 7,
+      "Liderança": 6,
+      "Passe pelo alto": 5,
+      "Passe rasteiro": 6,
+      "Raça": 5,
+      "Talento Defensivo": 6,
+      "Talento Ofensivo": 6,
+      "Talento de Goleiro": 5,
+      "Técnica": 7,
+      "Velocidade (aceleração)": 6,
+      "Velocidade (ritmo)": 7
+    }
   }
 }
