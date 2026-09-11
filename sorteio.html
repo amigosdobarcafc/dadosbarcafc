@@ -117,7 +117,7 @@ function renderGrid(){
   PLAYERS.forEach(p=>{
     const chip = document.createElement('div');
     chip.className = 'p-chip' + (p.overall==null ? ' na' : '');
-    chip.innerHTML = `<span class="nm">${p.nome}</span><span class="ov">${p.overall ?? '—'}</span>`;
+    chip.innerHTML = `<span class="nm">${p.nome}</span><span class="ov">${p.overall!=null ? Math.round(p.overall) : '—'}</span>`;
     chip.onclick = ()=>{
       if (selected.has(p.nome)) selected.delete(p.nome); else selected.add(p.nome);
       chip.classList.toggle('on');
@@ -236,7 +236,7 @@ function renderResultado(teams, reserves){
         <li>
           <span>${p.nome} <span class="pos">${p.posicao||''}</span></span>
           <span style="display:flex; align-items:center; gap:6px;">
-            <span class="ov">${p.overall}</span>
+            <span class="ov">${Math.round(p.overall)}</span>
             <button class="swap-btn" onclick="abrirTroca(${ti},${pi})">⇄</button>
           </span>
         </li>
