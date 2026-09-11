@@ -109,16 +109,10 @@ const ABFC = (function(){
     }
 
     Object.keys(targetRound.estatisticas||{}).forEach(name=>{
-      checkMarcos(sB.g[name]||0, sU.g[name]||0, name, 'gols', 'na temporada', '🎯');
-      checkMarcos(sB.a[name]||0, sU.a[name]||0, name, 'assistências', 'na temporada', '🎯');
-      checkMarcos(cB.g[name]||0, cU.g[name]||0, name, 'gols', 'no histórico geral', '🏅');
-      checkMarcos(cB.a[name]||0, cU.a[name]||0, name, 'assistências', 'no histórico geral', '🏅');
-    });
-
-    (targetRound.presentes||[]).forEach(name=>{
-      [10,25,50,75,100,150,200].forEach(m=>{
-        if ((sB.j[name]||0) < m && (sU.j[name]||0) >= m) out.push({icon:'📅', text:`${name} completou ${m} presenças na temporada!`, cat:'presenca'});
-      });
+      checkMarcos(sB.g[name]||0, sU.g[name]||0, name, 'gols', `no ano de ${targetRound.year}`, '🎯');
+      checkMarcos(sB.a[name]||0, sU.a[name]||0, name, 'assistências', `no ano de ${targetRound.year}`, '🎯');
+      checkMarcos(cB.g[name]||0, cU.g[name]||0, name, 'gols', 'no histórico geral desde 2025', '🏅');
+      checkMarcos(cB.a[name]||0, cU.a[name]||0, name, 'assistências', 'no histórico geral desde 2025', '🏅');
     });
 
     let best = null;
@@ -175,7 +169,7 @@ const ABFC = (function(){
     const unicos = out.filter(c=>{ if (seen.has(c.text)) return false; seen.add(c.text); return true; });
 
     // prioriza gols/assistências/destaques da rodada; presença e afins entram só se sobrar espaço
-    const ORDEM_PRIORIDADE = ['marco','destaque','primeiro','sequencia','jejum','presenca','estreante','fiel'];
+    const ORDEM_PRIORIDADE = ['marco','destaque','primeiro','sequencia','jejum','estreante','fiel'];
     const porCategoria = {};
     unicos.forEach(c => { (porCategoria[c.cat] = porCategoria[c.cat] || []).push(c); });
     const final = [];
