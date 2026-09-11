@@ -111,8 +111,8 @@ const ABFC = (function(){
     Object.keys(targetRound.estatisticas||{}).forEach(name=>{
       checkMarcos(sB.g[name]||0, sU.g[name]||0, name, 'gols', 'na temporada', '🎯');
       checkMarcos(sB.a[name]||0, sU.a[name]||0, name, 'assistências', 'na temporada', '🎯');
-      checkMarcos(cB.g[name]||0, cU.g[name]||0, name, 'gols', 'na carreira', '🏅');
-      checkMarcos(cB.a[name]||0, cU.a[name]||0, name, 'assistências', 'na carreira', '🏅');
+      checkMarcos(cB.g[name]||0, cU.g[name]||0, name, 'gols', 'no histórico geral', '🏅');
+      checkMarcos(cB.a[name]||0, cU.a[name]||0, name, 'assistências', 'no histórico geral', '🏅');
     });
 
     (targetRound.presentes||[]).forEach(name=>{
@@ -174,17 +174,14 @@ const ABFC = (function(){
     const seen = new Set();
     const unicos = out.filter(c=>{ if (seen.has(c.text)) return false; seen.add(c.text); return true; });
 
-    // diversifica: no máximo 2 por categoria, alternando entre categorias diferentes
+    // prioriza gols/assistências/destaques da rodada; presença e afins entram só se sobrar espaço
+    const ORDEM_PRIORIDADE = ['marco','destaque','primeiro','sequencia','jejum','presenca','estreante','fiel'];
     const porCategoria = {};
     unicos.forEach(c => { (porCategoria[c.cat] = porCategoria[c.cat] || []).push(c); });
-    const categorias = Object.keys(porCategoria);
     const final = [];
-    let i = 0;
-    while (final.length < 8 && categorias.some(cat => porCategoria[cat].length > 0)){
-      const cat = categorias[i % categorias.length];
-      if (porCategoria[cat].length > 0) final.push(porCategoria[cat].shift());
-      i++;
-    }
+    ORDEM_PRIORIDADE.forEach(cat=>{
+      (porCategoria[cat] || []).slice(0, 3).forEach(c=>{ if (final.length < 8) final.push(c); });
+    });
     return final;
   }
 
