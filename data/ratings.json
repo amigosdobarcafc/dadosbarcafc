@@ -986,5 +986,31 @@
       "Velocidade (aceleração)": 6,
       "Velocidade (ritmo)": 7
     }
+  },
+  "Elivelton": {
+    "overall": 6.2,
+    "posicao": "Goleiro",
+    "skills": {
+      "Controle de Bola": 6,
+      "Desarme": 6,
+      "Disputa de bola": 6,
+      "Equilíbrio": 6,
+      "Finalização": 7,
+      "Força do chute": 7,
+      "Força física": 6,
+      "Fôlego": 6,
+      "Individualismo": 5,
+      "Jogo coletivo": 5,
+      "Liderança": 5,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 6,
+      "Raça": 6,
+      "Talento Defensivo": 8,
+      "Talento Ofensivo": 6,
+      "Talento de Goleiro": 8,
+      "Técnica": 6,
+      "Velocidade (aceleração)": 6,
+      "Velocidade (ritmo)": 6
+    }
   }
 }
