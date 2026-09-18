@@ -3367,5 +3367,83 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-09-17",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Elivelton",
+      "Gabriel Garcia",
+      "Guto",
+      "Jonatas Padilha",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Nilton",
+      "Paulo (Padilha)",
+      "Rodrigo Ribeiro",
+      "Ronaldo Luiz",
+      "Vagner",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Carlos Eduardo": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Elivelton": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Gabriel Garcia": {
+        "gols": 5,
+        "assists": 6
+      },
+      "Guto": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Jonatas Padilha": {
+        "gols": 6,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 10,
+        "assists": 3
+      },
+      "Mateus Lopes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Nilton": {
+        "gols": 6,
+        "assists": 0
+      },
+      "Paulo (Padilha)": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Vagner": {
+        "gols": 0,
+        "assists": 0
+      },
+      "William Ramos": {
+        "gols": 3,
+        "assists": 1
+      }
+    },
+    "destaques": {}
   }
 ]
