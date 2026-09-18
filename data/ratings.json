@@ -1012,5 +1012,31 @@
       "Velocidade (aceleração)": 6,
       "Velocidade (ritmo)": 6
     }
+  },
+  "Paulo (Padilha)": {
+    "overall": 5.7,
+    "posicao": "Goleiro",
+    "skills": {
+      "Controle de Bola": 6,
+      "Desarme": 5,
+      "Disputa de bola": 5,
+      "Equilíbrio": 5,
+      "Finalização": 4,
+      "Força do chute": 6,
+      "Força física": 6,
+      "Fôlego": 5,
+      "Individualismo": 5,
+      "Jogo coletivo": 6,
+      "Liderança": 6,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 6,
+      "Raça": 6,
+      "Talento Defensivo": 7,
+      "Talento Ofensivo": 5,
+      "Talento de Goleiro": 7,
+      "Técnica": 6,
+      "Velocidade (aceleração)": 6,
+      "Velocidade (ritmo)": 5
+    }
   }
 }
