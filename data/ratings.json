@@ -1090,5 +1090,31 @@
       "Velocidade (aceleração)": 6,
       "Velocidade (ritmo)": 6
     }
+  },
+  "Rodrigo Ribeiro": {
+    "overall": 6.5,
+    "posicao": "Fixo",
+    "skills": {
+      "Controle de Bola": 6,
+      "Desarme": 6,
+      "Disputa de bola": 6,
+      "Equilíbrio": 6,
+      "Finalização": 6,
+      "Força do chute": 7,
+      "Força física": 8,
+      "Fôlego": 6,
+      "Individualismo": 6,
+      "Jogo coletivo": 9,
+      "Liderança": 6,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 6,
+      "Raça": 6,
+      "Talento Defensivo": 7,
+      "Talento Ofensivo": 6,
+      "Talento de Goleiro": 8,
+      "Técnica": 7,
+      "Velocidade (aceleração)": 6,
+      "Velocidade (ritmo)": 6
+    }
   }
 }
