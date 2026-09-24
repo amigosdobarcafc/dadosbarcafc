@@ -1064,5 +1064,31 @@
       "Velocidade (aceleração)": 8,
       "Velocidade (ritmo)": 7
     }
+  },
+  "Júlio": {
+    "overall": 6.2,
+    "posicao": "Ala",
+    "skills": {
+      "Controle de Bola": 7,
+      "Desarme": 6,
+      "Disputa de bola": 6,
+      "Equilíbrio": 6,
+      "Finalização": 7,
+      "Força do chute": 7,
+      "Força física": 6,
+      "Fôlego": 5,
+      "Individualismo": 7,
+      "Jogo coletivo": 7,
+      "Liderança": 6,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 7,
+      "Raça": 6,
+      "Talento Defensivo": 6,
+      "Talento Ofensivo": 6,
+      "Talento de Goleiro": 5,
+      "Técnica": 6,
+      "Velocidade (aceleração)": 6,
+      "Velocidade (ritmo)": 6
+    }
   }
 }
