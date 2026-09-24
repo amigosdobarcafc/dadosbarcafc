@@ -1038,5 +1038,31 @@
       "Velocidade (aceleração)": 6,
       "Velocidade (ritmo)": 5
     }
+  },
+  "Murilo": {
+    "overall": 8,
+    "posicao": "Pivô",
+    "skills": {
+      "Controle de Bola": 10,
+      "Desarme": 6,
+      "Disputa de bola": 9,
+      "Equilíbrio": 9,
+      "Finalização": 10,
+      "Força do chute": 10,
+      "Força física": 9,
+      "Fôlego": 7,
+      "Individualismo": 9,
+      "Jogo coletivo": 8,
+      "Liderança": 5,
+      "Passe pelo alto": 7,
+      "Passe rasteiro": 7,
+      "Raça": 8,
+      "Talento Defensivo": 6,
+      "Talento Ofensivo": 10,
+      "Talento de Goleiro": 5,
+      "Técnica": 9,
+      "Velocidade (aceleração)": 8,
+      "Velocidade (ritmo)": 7
+    }
   }
 }
