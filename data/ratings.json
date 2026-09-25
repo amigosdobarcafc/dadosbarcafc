@@ -1142,5 +1142,31 @@
       "Velocidade (aceleração)": 8,
       "Velocidade (ritmo)": 9
     }
+  },
+  "Allef": {
+    "overall": 7,
+    "posicao": "Ala",
+    "skills": {
+      "Controle de Bola": 6,
+      "Desarme": 8,
+      "Disputa de bola": 9,
+      "Equilíbrio": 7,
+      "Finalização": 7,
+      "Força do chute": 8,
+      "Força física": 9,
+      "Fôlego": 9,
+      "Individualismo": 5,
+      "Jogo coletivo": 5,
+      "Liderança": 5,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 7,
+      "Raça": 9,
+      "Talento Defensivo": 8,
+      "Talento Ofensivo": 6,
+      "Talento de Goleiro": 7,
+      "Técnica": 5,
+      "Velocidade (aceleração)": 7,
+      "Velocidade (ritmo)": 7
+    }
   }
 }
