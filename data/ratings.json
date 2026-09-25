@@ -1116,5 +1116,31 @@
       "Velocidade (aceleração)": 6,
       "Velocidade (ritmo)": 6
     }
+  },
+  "José P": {
+    "overall": 8,
+    "posicao": "Ala",
+    "skills": {
+      "Controle de Bola": 10,
+      "Desarme": 6,
+      "Disputa de bola": 7,
+      "Equilíbrio": 9,
+      "Finalização": 10,
+      "Força do chute": 10,
+      "Força física": 7,
+      "Fôlego": 8,
+      "Individualismo": 9,
+      "Jogo coletivo": 7,
+      "Liderança": 6,
+      "Passe pelo alto": 7,
+      "Passe rasteiro": 8,
+      "Raça": 8,
+      "Talento Defensivo": 6,
+      "Talento Ofensivo": 10,
+      "Talento de Goleiro": 5,
+      "Técnica": 10,
+      "Velocidade (aceleração)": 8,
+      "Velocidade (ritmo)": 9
+    }
   }
 }
