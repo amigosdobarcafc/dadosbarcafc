@@ -3445,5 +3445,98 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-09-24",
+    "presentes": [
+      "Alex Gabbia",
+      "Allef",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Guto",
+      "Jonatas Padilha",
+      "José P",
+      "Júlio",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Murilo",
+      "Nilton",
+      "Renan Menezes",
+      "Renan Vieira",
+      "Rodrigo Ribeiro",
+      "Ronaldo Luiz",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Allef": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Guto": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Jonatas Padilha": {
+        "gols": 2,
+        "assists": 3
+      },
+      "José P": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Júlio": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Mateus Lopes": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Murilo": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Nilton": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Renan Vieira": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 3,
+        "assists": 3
+      },
+      "William Ramos": {
+        "gols": 2,
+        "assists": 1
+      }
+    },
+    "destaques": {}
   }
 ]
