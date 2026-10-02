@@ -3538,5 +3538,78 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-10-01",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Hessel",
+      "Kaue Nazario",
+      "Maicon Facioli",
+      "Mateus Lopes",
+      "Neto",
+      "Paulo",
+      "Renan Menezes",
+      "Rodrigo Ribeiro",
+      "Ronaldo Luiz",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 1,
+        "assists": 4
+      },
+      "Felipe Furquim": {
+        "gols": 4,
+        "assists": 3
+      },
+      "Gabriel Garcia": {
+        "gols": 11,
+        "assists": 4
+      },
+      "Gustavo Hessel": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Maicon Facioli": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Neto": {
+        "gols": 2,
+        "assists": 1
+      },
+      "Paulo": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Renan Menezes": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 4
+      },
+      "William Ramos": {
+        "gols": 6,
+        "assists": 3
+      }
+    },
+    "destaques": {}
   }
 ]
