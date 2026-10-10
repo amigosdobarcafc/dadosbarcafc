@@ -3611,5 +3611,93 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-10-08",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Guto",
+      "Jonatas Padilha",
+      "Júlio",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Nilton",
+      "Paulo",
+      "Rodrigo Ribeiro",
+      "Ronaldo Luiz",
+      "Vagner",
+      "William Ramos"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 0,
+        "assists": 6
+      },
+      "Gabriel Garcia": {
+        "gols": 3,
+        "assists": 10
+      },
+      "Gustavo Ortiz": {
+        "gols": 10,
+        "assists": 1
+      },
+      "Guto": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Jonatas Padilha": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Júlio": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Mateus Falcao": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 7,
+        "assists": 0
+      },
+      "Nilton": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Paulo": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Ronaldo Luiz": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Vagner": {
+        "gols": 0,
+        "assists": 0
+      },
+      "William Ramos": {
+        "gols": 3,
+        "assists": 2
+      }
+    },
+    "destaques": {}
   }
 ]
