@@ -3699,5 +3699,83 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-10-15",
+    "presentes": [
+      "Alex Gabbia",
+      "Carlos Eduardo",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Giovane",
+      "Gustavo Ortiz",
+      "Kaue Nazario",
+      "Luan Santos",
+      "Mateus Almeida",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Matheus Henrique",
+      "Paulo",
+      "Vagner"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Carlos Eduardo": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Felipe Furquim": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Gabriel Garcia": {
+        "gols": 7,
+        "assists": 7
+      },
+      "Giovane": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Gustavo Ortiz": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Kaue Nazario": {
+        "gols": 8,
+        "assists": 3
+      },
+      "Luan Santos": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Mateus Almeida": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Mateus Falcao": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 2,
+        "assists": 2
+      },
+      "Matheus Henrique": {
+        "gols": 1,
+        "assists": 2
+      },
+      "Paulo": {
+        "gols": 7,
+        "assists": 3
+      },
+      "Vagner": {
+        "gols": 2,
+        "assists": 1
+      }
+    },
+    "destaques": {}
   }
 ]
