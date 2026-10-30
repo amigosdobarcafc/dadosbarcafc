@@ -3850,5 +3850,68 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-10-30",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Kaue Nazario",
+      "Luan Oliveira",
+      "Lukinha",
+      "Pietro",
+      "Richard Magaldi",
+      "Rodrigo Ribeiro",
+      "Roger Formes"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 2,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 8,
+        "assists": 1
+      },
+      "Gabriel Garcia": {
+        "gols": 8,
+        "assists": 8
+      },
+      "Gustavo Ortiz": {
+        "gols": 7,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 4,
+        "assists": 7
+      },
+      "Luan Oliveira": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Lukinha": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Pietro": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Richard Magaldi": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Roger Formes": {
+        "gols": 5,
+        "assists": 0
+      }
+    },
+    "destaques": {}
   }
 ]
