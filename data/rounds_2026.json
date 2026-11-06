@@ -3913,5 +3913,73 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-11-05",
+    "presentes": [
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Gabriel Garcia",
+      "Gustavo Ortiz",
+      "Júlio",
+      "Kaue Nazario",
+      "Mateus Falcao",
+      "Mateus Lopes",
+      "Pietro",
+      "Rodrigo Ribeiro",
+      "Roger Formes",
+      "Ronaldo Luiz"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 5,
+        "assists": 5
+      },
+      "Felipe Furquim": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Gabriel Garcia": {
+        "gols": 10,
+        "assists": 6
+      },
+      "Gustavo Ortiz": {
+        "gols": 3,
+        "assists": 6
+      },
+      "Júlio": {
+        "gols": 1,
+        "assists": 3
+      },
+      "Kaue Nazario": {
+        "gols": 12,
+        "assists": 6
+      },
+      "Mateus Falcao": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Mateus Lopes": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Pietro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Roger Formes": {
+        "gols": 3,
+        "assists": 2
+      },
+      "Ronaldo Luiz": {
+        "gols": 2,
+        "assists": 0
+      }
+    },
+    "destaques": {}
   }
 ]
