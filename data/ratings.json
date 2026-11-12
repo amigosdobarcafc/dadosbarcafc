@@ -1246,5 +1246,31 @@
       "Velocidade (aceleração)": 8,
       "Velocidade (ritmo)": 8
     }
+  },
+  "Fidellis": {
+    "overall": 6.5,
+    "posicao": "Ala",
+    "skills": {
+      "Controle de Bola": 7,
+      "Desarme": 7,
+      "Disputa de bola": 6,
+      "Equilíbrio": 7,
+      "Finalização": 7,
+      "Força do chute": 6,
+      "Força física": 7,
+      "Fôlego": 7,
+      "Individualismo": 6,
+      "Jogo coletivo": 7,
+      "Liderança": 6,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 6,
+      "Raça": 6,
+      "Talento Defensivo": 6,
+      "Talento Ofensivo": 6,
+      "Talento de Goleiro": 5,
+      "Técnica": 7,
+      "Velocidade (aceleração)": 7,
+      "Velocidade (ritmo)": 7
+    }
   }
 }
