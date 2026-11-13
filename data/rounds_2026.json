@@ -3981,5 +3981,88 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-11-12",
+    "presentes": [
+      "Alan",
+      "Alex Gabbia",
+      "Felipe Furquim",
+      "Fidellis",
+      "Gabriel Garcia",
+      "Gustavo Hessel",
+      "Gustavo Lopes",
+      "Gustavo Ortiz",
+      "Jonatas Padilha",
+      "José P",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Nilton",
+      "Robson Souza",
+      "Rodrigo Ribeiro"
+    ],
+    "estatisticas": {
+      "Alan": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Alex Gabbia": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Felipe Furquim": {
+        "gols": 4,
+        "assists": 2
+      },
+      "Fidellis": {
+        "gols": 3,
+        "assists": 0
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 4
+      },
+      "Gustavo Hessel": {
+        "gols": 0,
+        "assists": 2
+      },
+      "Gustavo Lopes": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Gustavo Ortiz": {
+        "gols": 5,
+        "assists": 0
+      },
+      "Jonatas Padilha": {
+        "gols": 3,
+        "assists": 5
+      },
+      "José P": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Kaue Nazario": {
+        "gols": 7,
+        "assists": 2
+      },
+      "Mateus Lopes": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Nilton": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 0,
+        "assists": 0
+      }
+    },
+    "destaques": {}
   }
 ]
