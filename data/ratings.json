@@ -1298,5 +1298,31 @@
       "Velocidade (aceleração)": 5,
       "Velocidade (ritmo)": 5
     }
+  },
+  "Gustavo Fernandes (Jo)": {
+    "overall": 7,
+    "posicao": "Pivô",
+    "skills": {
+      "Controle de Bola": 8,
+      "Desarme": 7,
+      "Disputa de bola": 7,
+      "Equilíbrio": 6,
+      "Finalização": 7,
+      "Força do chute": 8,
+      "Força física": 8,
+      "Fôlego": 6,
+      "Individualismo": 6,
+      "Jogo coletivo": 8,
+      "Liderança": 6,
+      "Passe pelo alto": 6,
+      "Passe rasteiro": 6,
+      "Raça": 7,
+      "Talento Defensivo": 8,
+      "Talento Ofensivo": 7,
+      "Talento de Goleiro": 8,
+      "Técnica": 7,
+      "Velocidade (aceleração)": 6,
+      "Velocidade (ritmo)": 7
+    }
   }
 }
