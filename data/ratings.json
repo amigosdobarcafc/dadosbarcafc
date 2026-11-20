@@ -1324,5 +1324,31 @@
       "Velocidade (aceleração)": 6,
       "Velocidade (ritmo)": 7
     }
+  },
+  "Kauan": {
+    "overall": 8,
+    "posicao": "Ala",
+    "skills": {
+      "Controle de Bola": 9,
+      "Desarme": 6,
+      "Disputa de bola": 9,
+      "Equilíbrio": 9,
+      "Finalização": 9,
+      "Força do chute": 8,
+      "Força física": 8,
+      "Fôlego": 9,
+      "Individualismo": 9,
+      "Jogo coletivo": 8,
+      "Liderança": 6,
+      "Passe pelo alto": 7,
+      "Passe rasteiro": 7,
+      "Raça": 8,
+      "Talento Defensivo": 6,
+      "Talento Ofensivo": 9,
+      "Talento de Goleiro": 6,
+      "Técnica": 9,
+      "Velocidade (aceleração)": 9,
+      "Velocidade (ritmo)": 9
+    }
   }
 }
