@@ -4071,6 +4071,7 @@
       "Alex Gabbia",
       "Andrey",
       "Felipe Almeida",
+      "Felipe Furquim",
       "Fidellis",
       "Gabriel Garcia",
       "Gustavo Fernandes (Jo)",
@@ -4092,6 +4093,10 @@
         "assists": 0
       },
       "Felipe Almeida": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Felipe Furquim": {
         "gols": 5,
         "assists": 1
       },
