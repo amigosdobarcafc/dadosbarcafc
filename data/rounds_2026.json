@@ -4064,5 +4064,78 @@
       }
     },
     "destaques": {}
+  },
+  {
+    "data": "2026-11-19",
+    "presentes": [
+      "Alex Gabbia",
+      "Andrey",
+      "Felipe Almeida",
+      "Fidellis",
+      "Gabriel Garcia",
+      "Gustavo Fernandes (Jo)",
+      "Gustavo Ortiz",
+      "Júlio",
+      "Kauan",
+      "Kaue Nazario",
+      "Mateus Lopes",
+      "Robson Souza",
+      "Rodrigo Ribeiro"
+    ],
+    "estatisticas": {
+      "Alex Gabbia": {
+        "gols": 3,
+        "assists": 1
+      },
+      "Andrey": {
+        "gols": 0,
+        "assists": 0
+      },
+      "Felipe Almeida": {
+        "gols": 5,
+        "assists": 1
+      },
+      "Fidellis": {
+        "gols": 4,
+        "assists": 0
+      },
+      "Gabriel Garcia": {
+        "gols": 4,
+        "assists": 5
+      },
+      "Gustavo Fernandes (Jo)": {
+        "gols": 0,
+        "assists": 1
+      },
+      "Gustavo Ortiz": {
+        "gols": 6,
+        "assists": 2
+      },
+      "Júlio": {
+        "gols": 1,
+        "assists": 1
+      },
+      "Kauan": {
+        "gols": 3,
+        "assists": 4
+      },
+      "Kaue Nazario": {
+        "gols": 5,
+        "assists": 4
+      },
+      "Mateus Lopes": {
+        "gols": 6,
+        "assists": 0
+      },
+      "Robson Souza": {
+        "gols": 1,
+        "assists": 0
+      },
+      "Rodrigo Ribeiro": {
+        "gols": 1,
+        "assists": 0
+      }
+    },
+    "destaques": {}
   }
 ]
